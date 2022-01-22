@@ -7,8 +7,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'varela': ['Varela'],
-      }
+        varela: ["Varela"],
+      },
+      colors: {
+        gray: {
+          750: "#303947",
+        },
+      },
     },
   },
   plugins: [],

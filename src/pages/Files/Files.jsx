@@ -1,9 +1,18 @@
 import Layout from "components/Layout/Layout";
+import { NavLink } from "react-router-dom";
 
 const Files = () => {
   return (
     <Layout className="border">
-      <h1> Files page </h1>
+      <section className="flex justify-between items-center">
+        <h1> Files page </h1>
+        <NavLink
+          to={"/file/add"}
+          className={"bg-slate-800 rounded-lg px-3 py-2"}
+        >
+          Faýl goş
+        </NavLink>
+      </section>
     </Layout>
   );
 };

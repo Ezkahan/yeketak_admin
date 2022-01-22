@@ -2,14 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-    body {
-        background-color: #303947;
-    }
+  * {
+    outline: none !important;
+  }
+  body {
+    background-color: #303947;
+  }
 
-    @font-face {
-        font-family: Varela;
-        src: url('assets/fonts/Varela.ttf');
-    }
+  @font-face {
+    font-family: Varela;
+    src: url("assets/fonts/Varela.ttf");
+  }
 }
