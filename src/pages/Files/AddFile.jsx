@@ -25,7 +25,7 @@ const AddFile = () => {
       <h1 className="font-medium text-lg"> Faýl goş </h1>
       <form
         onSubmit={handleSubmit}
-        className="grid grid-cols-12 gap-x-4 gap-y-7 my-5"
+        className="grid grid-cols-12 gap-x-4 gap-y-7 my-10"
       >
         <div className="relative col-span-12 lg:col-span-6 border group border-slate-800 rounded-lg">
           <div
@@ -78,14 +78,14 @@ const AddFile = () => {
         <div className="relative col-span-12 lg:col-span-6 border group border-slate-800 rounded-lg">
           <div
             className={`bg-gray-750 absolute left-3 px-2 transform ${
-              formState.music_author.length && "-translate-y-3"
+              formState.word_author.length && "-translate-y-3"
             } group-focus-within:-translate-y-3 duration-500 top-0 text-gray-300`}
           >
             Faýlyň sözi
           </div>
           <input
             onChange={handleChange}
-            name="music_author"
+            name="word_author"
             type="text"
             className="bg-transparent p-3 w-full"
           />

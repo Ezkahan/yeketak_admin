@@ -8,6 +8,8 @@ import AddArtist from "pages/Artists/AddArtist";
 import EditFile from "pages/Files/EditFile";
 import EditArtist from "pages/Artists/EditArtist";
 import Page404 from "pages/404";
+import Sliders from "pages/Sliders/Sliders";
+import AddSliders from "pages/Sliders/AddSlider";
 
 const Routers = () => {
   return (
@@ -20,6 +22,8 @@ const Routers = () => {
       <Route path="/artists" element={<Artists />} />
       <Route path="/artist/add" element={<AddArtist />} />
       <Route path="/artist/:id/edit" element={<EditArtist />} />
+      <Route path="/sliders" element={<Sliders />} />
+      <Route path="/slider/add" element={<AddSliders />} />
 
       {/* 404 hemise asakda durmaly bolmasa error berya */}
       <Route path="*" element={<Page404 />} />
