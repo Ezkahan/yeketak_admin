@@ -7,6 +7,7 @@ import {
   IoImagesOutline,
   IoStarOutline,
 } from "react-icons/io5";
+import { AiOutlineMenuUnfold } from "react-icons/ai";
 
 const Sidebar = ({ isOpen, toggle }) => {
   return (
@@ -17,43 +18,61 @@ const Sidebar = ({ isOpen, toggle }) => {
         onClick={toggle}
         className="flex flex-col text-2xl font-bold text-center p-4"
       >
-        Yeketak.com
+        {isOpen ? "Yeketak.com" : <AiOutlineMenuUnfold size={24} />}
       </nav>
       <NavLink
         to="/"
-        className="bg-slate-800 text-gray-400 font-bold px-5 py-2.5 mb-2 flex items-center rounded-lg"
+        className={`bg-slate-800 text-gray-400 font-bold py-2.5 mb-2 flex items-center rounded-lg ${
+          isOpen ? "px-5" : "flex justify-center items-center"
+        }`}
       >
-        <IoHomeOutline size={24} className="mr-2" /> {isOpen && "Esasy"}
+        <IoHomeOutline size={24} className={isOpen && "mr-2"} />{" "}
+        {isOpen && "Esasy"}
       </NavLink>
       <NavLink
         to="/files"
-        className="bg-slate-800 text-gray-400 font-bold px-5 py-2.5 mb-2 flex items-center rounded-lg"
+        className={`bg-slate-800 text-gray-400 font-bold py-2.5 mb-2 flex items-center rounded-lg ${
+          isOpen ? "px-5" : "flex justify-center items-center"
+        }`}
       >
-        <IoFileTrayOutline size={24} className="mr-2" /> {isOpen && "Faýllar"}
+        <IoFileTrayOutline size={24} className={isOpen && "mr-2"} />{" "}
+        {isOpen && "Faýllar"}
       </NavLink>
       <NavLink
         to="/artists"
-        className="bg-slate-800 text-gray-400 font-bold px-5 py-2.5 mb-2 flex items-center rounded-lg"
+        className={`bg-slate-800 text-gray-400 font-bold py-2.5 mb-2 flex items-center rounded-lg ${
+          isOpen ? "px-5" : "flex justify-center items-center"
+        }`}
       >
-        <IoStarOutline size={24} className="mr-2" /> {isOpen && "Bagşylar"}
+        <IoStarOutline size={24} className={isOpen && "mr-2"} />{" "}
+        {isOpen && "Bagşylar"}
       </NavLink>
       <NavLink
         to="/sliders"
-        className="bg-slate-800 text-gray-400 font-bold px-5 py-2.5 mb-2 flex items-center rounded-lg"
+        className={`bg-slate-800 text-gray-400 font-bold py-2.5 mb-2 flex items-center rounded-lg ${
+          isOpen ? "px-5" : "flex justify-center items-center"
+        }`}
       >
-        <IoImagesOutline size={24} className="mr-2" /> {isOpen && "Slaýderlar"}
+        <IoImagesOutline size={24} className={isOpen && "mr-2"} />{" "}
+        {isOpen && "Slaýderlar"}
       </NavLink>
       <NavLink
         to="/markets"
-        className="bg-slate-800 text-gray-400 font-bold px-5 py-2.5 mb-2 flex items-center rounded-lg"
+        className={`bg-slate-800 text-gray-400 font-bold py-2.5 mb-2 flex items-center rounded-lg ${
+          isOpen ? "px-5" : "flex justify-center items-center"
+        }`}
       >
-        <IoBusinessOutline size={24} className="mr-2" /> {isOpen && "Marketlar"}
+        <IoBusinessOutline size={24} className={isOpen && "mr-2"} />{" "}
+        {isOpen && "Marketlar"}
       </NavLink>
       <NavLink
         to="/services"
-        className="bg-slate-800 text-gray-400 font-bold px-5 py-2.5 mb-2 flex items-center rounded-lg"
+        className={`bg-slate-800 text-gray-400 font-bold py-2.5 mb-2 flex items-center rounded-lg ${
+          isOpen ? "px-5" : "flex justify-center items-center"
+        }`}
       >
-        <IoCogOutline size={24} className="mr-2" /> {isOpen && "Hyzmatlar"}
+        <IoCogOutline size={24} className={isOpen && "mr-2"} />{" "}
+        {isOpen && "Hyzmatlar"}
       </NavLink>
     </main>
   );
