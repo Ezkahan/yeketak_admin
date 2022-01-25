@@ -1,6 +1,6 @@
 import Layout from "components/Layout/Layout";
 import { NavLink } from "react-router-dom";
-import { RiEdit2Fill, RiEditCircleFill } from "react-icons/ri";
+import { RiEdit2Fill } from "react-icons/ri";
 import { FaTrash } from "react-icons/fa";
 import Title from "components/Title/Title";
 import { IoSearchOutline } from "react-icons/io5";
