@@ -11,7 +11,12 @@
   }
 
   @font-face {
-    font-family: Varela;
-    src: url("assets/fonts/Varela.ttf");
+    font-family: Montserrat-Bold;
+    src: url("assets/fonts/Montserrat-Bold.ttf");
+  }
+
+  @font-face {
+    font-family: Montserrat-Medium;
+    src: url("assets/fonts/Montserrat-Medium.ttf");
   }
 }

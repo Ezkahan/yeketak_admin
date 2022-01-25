@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        varela: ["Varela"],
+        'montserrat-medium': ["Montserrat-Medium"],
+        'montserrat-bold': ["Montserrat-Bold"],
       },
       colors: {
         gray: {

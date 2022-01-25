@@ -2,12 +2,14 @@ import Layout from "components/Layout/Layout";
 import { NavLink } from "react-router-dom";
 import { RiEdit2Fill, RiEditCircleFill } from "react-icons/ri";
 import { FaTrash } from "react-icons/fa";
+import Title from "components/Title/Title";
 
 const Artists = () => {
   return (
     <Layout className="border">
       <section className="flex justify-between items-center">
-        <h1> Artists page </h1>
+        <Title>Bagşylar</Title>
+
         <NavLink
           to={"/artist/add"}
           className={"bg-slate-800 rounded-lg px-3 py-2"}

@@ -1,12 +1,13 @@
 import Layout from "components/Layout/Layout";
 import { NavLink } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
+import Title from "components/Title/Title";
 
 const Sliders = () => {
   return (
     <Layout className="border">
       <section className="flex justify-between items-center">
-        <h1> Sliders page </h1>
+        <Title>Slaýderlar</Title>
         <NavLink
           to={"/slider/add"}
           className={"bg-slate-800 rounded-lg px-3 py-2"}
