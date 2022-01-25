@@ -32,7 +32,7 @@ const Sidebar = ({ isOpen, toggle }) => {
       <nav className="flex justify-around xl:flex-col xl:mt-10 py-2 xl:py-0">
         <NavLink
           to="/"
-          className={`bg-slate-800 text-gray-400 font-bold py-2.5 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-3xl xl:rounded-xl relative overflow-hidden ${
+          className={`bg-slate-800 text-gray-400 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-3 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-3xl xl:rounded-xl relative overflow-hidden ${
             isOpen ? "px-5" : "flex justify-center items-center"
           }`}
         >
@@ -48,7 +48,7 @@ const Sidebar = ({ isOpen, toggle }) => {
 
         <NavLink
           to="/files"
-          className={`bg-slate-800 text-gray-400 font-bold py-2.5 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-3xl xl:rounded-xl relative overflow-hidden ${
+          className={`bg-slate-800 text-gray-400 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-3 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-3xl xl:rounded-xl relative overflow-hidden ${
             isOpen ? "px-5" : "flex justify-center items-center"
           }`}
         >
@@ -64,7 +64,7 @@ const Sidebar = ({ isOpen, toggle }) => {
 
         <NavLink
           to="/artists"
-          className={`bg-slate-800 text-gray-400 font-bold py-2.5 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-3xl xl:rounded-xl relative overflow-hidden ${
+          className={`bg-slate-800 text-gray-400 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-3 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-3xl xl:rounded-xl relative overflow-hidden ${
             isOpen ? "px-5" : "flex justify-center items-center"
           }`}
         >
@@ -80,7 +80,7 @@ const Sidebar = ({ isOpen, toggle }) => {
 
         <NavLink
           to="/sliders"
-          className={`bg-slate-800 text-gray-400 font-bold py-2.5 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-3xl xl:rounded-xl relative overflow-hidden ${
+          className={`bg-slate-800 text-gray-400 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-3 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-3xl xl:rounded-xl relative overflow-hidden ${
             isOpen ? "px-5" : "flex justify-center items-center"
           }`}
         >
@@ -96,7 +96,7 @@ const Sidebar = ({ isOpen, toggle }) => {
 
         <NavLink
           to="/markets"
-          className={`bg-slate-800 text-gray-400 font-bold py-2.5 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-3xl xl:rounded-xl relative overflow-hidden ${
+          className={`bg-slate-800 text-gray-400 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-3 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-3xl xl:rounded-xl relative overflow-hidden ${
             isOpen ? "px-5" : "flex justify-center items-center"
           }`}
         >
@@ -112,7 +112,7 @@ const Sidebar = ({ isOpen, toggle }) => {
 
         <NavLink
           to="/services"
-          className={`bg-slate-800 text-gray-400 font-bold py-2.5 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-3xl xl:rounded-xl relative overflow-hidden ${
+          className={`bg-slate-800 text-gray-400 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-3 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-3xl xl:rounded-xl relative overflow-hidden ${
             isOpen ? "px-5" : "flex justify-center items-center"
           }`}
         >
