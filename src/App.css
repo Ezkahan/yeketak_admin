@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    outline: none !important;
+  }
+  body {
+    background-color: #303947;
+  }
+
+  @font-face {
+    font-family: Montserrat-Bold;
+    src: url("assets/fonts/Montserrat-Bold.ttf");
+  }
+
+  @font-face {
+    font-family: Montserrat-Medium;
+    src: url("assets/fonts/Montserrat-Medium.ttf");
+  }
+}
