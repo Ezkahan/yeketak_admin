@@ -21,7 +21,7 @@ const Sidebar = ({ isOpen, toggle }) => {
         className="hidden xl:flex xl:flex-col text-2xl font-bold text-center p-4"
       >
         <p
-          className={`absolute -translate-x-1 duration-700 ${
+          className={`absolute -translate-x-1 duration-700 cursor-pointer ${
             isOpen ? "ml-8" : "translate-y-2"
           }`}
         >

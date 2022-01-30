@@ -19,7 +19,7 @@ const Artists = () => {
         <div className="bg-gray-900 w-6/12 xl:flex items-center justify-between rounded-xl overflow-hidden hidden">
           <input
             type="search"
-            placeholder="Gözleg"
+            placeholder="Gözleg..."
             className="bg-transparent p-3 pl-5 w-full"
           />
           <button className="bg-yellow-300 text-gray-900 p-1 rounded-xl m-2">

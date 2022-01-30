@@ -1,5 +1,6 @@
 import Layout from "components/Layout/Layout";
 import { useState } from "react";
+import { IoAddCircle } from "react-icons/io5";
 
 const AddSliders = () => {
   const [formState, setFormState] = useState({
@@ -22,9 +23,9 @@ const AddSliders = () => {
         onSubmit={handleSubmit}
         className="grid grid-cols-12 gap-x-4 gap-y-7 my-10"
       >
-        <div className="relative col-span-12 border group border-slate-800 rounded-lg">
+        <div className="relative col-span-12 group rounded-lg">
           <div
-            className={`bg-gray-750 absolute left-3 px-2 transform ${
+            className={`bg-gray-900 rounded-lg absolute left-3 px-2 transform ${
               formState.name.length && "-translate-y-3"
             } group-focus-within:-translate-y-3 duration-500 top-0 text-gray-300`}
           >
@@ -34,20 +35,27 @@ const AddSliders = () => {
             onChange={handleChange}
             name="name"
             type="text"
-            className="bg-transparent p-3 w-full"
+            className="bg-gray-900 border border-gray-700 rounded-lg p-3 w-full"
           />
         </div>
 
-        <label className="col-span-12">
-          Surat saýla
-          <input
+        <div className="relative col-span-12 lg:col-span-6 group  h-12 border w-full bg-gray-900 rounded-lg text-slate-300 border-gray-700">
+        <label htmlFor="img" className="absolute -top-1 left-5">
+          Surat saýla {formState.image}  
+        </label>
+        <input
             type="file"
             onChange={(e) =>
-              setFormState({ ...formState, image: e.target.files[0] })
+              setFormState({ ...formState, image: e.target.files[0].name, image: e.target.files[0]})
             }
-            className="block mt-2 w-full text-sm text-slate-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-slat-700 hover:file:bg-violet-100"
+            className="block opacity-0 text-sm cursor-pointer text-slate-300 file:p-3 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-slat-700 hover:file:bg-violet-100"
           />
-        </label>
+        </div>
+        <button className="relative col-span-12 lg:col-span-2 group h-11 flex flex-row justify-center items-center border w-full text-lg bg-amber-300 font-montserrat-bold hover:bg-amber-400 text-amber-900 rounded-lg ">
+          <IoAddCircle size={22}/>
+          Tassyklan
+          </button>
+     
       </form>
     </Layout>
   );

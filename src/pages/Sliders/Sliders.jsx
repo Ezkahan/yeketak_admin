@@ -24,7 +24,7 @@ const Sliders = () => {
         </NavLink>
       </header>
 
-      <section className="grid grid-cols-12 gap-4 my-10">
+      <section className="grid grid-cols-12 gap-4 my-16">
         <aside className="col-span-12 lg:col-span-6 relative">
           <img
             className="w-full rounded-xl hover:brightness-125 transform duration-500"
