@@ -14,7 +14,7 @@ const Sidebar = ({ isOpen, toggle }) => {
     <main
       className={`xl:bg-gray-900 bg-yellow-300 text-white fixed bottom-0 xl:bottom-5 xl:left-5 left-0 xl:top-5 right-0 px-4 ${
         isOpen ? "xl:w-72" : "w-20"
-      } duration-1000 rounded-t-3xl xl:rounded-3xl backdrop-blur-md bg-opacity-80 overflow-y-hidden overflow-x-auto z-50`}
+      } duration-1000 rounded-t-3xl xl:rounded-3xl backdrop-blur-md bg-opacity-80 overflow-y-hidden overflow-x-auto z-40 xl:h-115`}
     >
       <header
         onClick={toggle}

@@ -19,4 +19,29 @@
     font-family: Montserrat-Medium;
     src: url("assets/fonts/Montserrat-Medium.ttf");
   }
+
+  ::-webkit-scrollbar {
+    background: #111;
+    width: 10px;
+  }
+  ::-webkit-scrollbar-button {
+    background: #111;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #FDE047;
+    border-radius: 3rem;
+  }
+
+  .h-115 {
+    height: 26rem;
+  }
+
+  .w-125 {
+    width: 30rem;
+  }
+
+  .h-125 {
+    height: 29rem;
+  }
 }

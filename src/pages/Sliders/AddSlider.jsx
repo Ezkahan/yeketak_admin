@@ -16,7 +16,7 @@ const AddSliders = () => {
   };
 
   return (
-    <Layout className="border">
+    <Layout>
       <h1 className="font-medium text-lg"> Slaýder goş </h1>
       <form
         onSubmit={handleSubmit}

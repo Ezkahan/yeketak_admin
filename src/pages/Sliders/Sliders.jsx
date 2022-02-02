@@ -5,7 +5,7 @@ import Title from "components/Title/Title";
 
 const Sliders = () => {
   return (
-    <Layout className="border">
+    <Layout>
       <header className="flex justify-between items-center">
         <div>
           <Title>

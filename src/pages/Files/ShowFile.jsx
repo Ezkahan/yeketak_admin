@@ -1,11 +1,11 @@
 import Layout from "components/Layout/Layout";
 
-const Login = () => {
+const ShowFile = () => {
   return (
     <Layout>
-      <h1> Login page </h1>
+      <h1> ShowFile page </h1>
     </Layout>
   );
 };
 
-export default Login;
+export default ShowFile;

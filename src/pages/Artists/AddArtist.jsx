@@ -17,7 +17,7 @@ const AddArtist = () => {
   };
 
   return (
-    <Layout className="border">
+    <Layout>
       <h1 className="font-medium text-lg"> Bagşy goş </h1>
       <form
         onSubmit={handleSubmit}

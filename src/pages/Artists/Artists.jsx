@@ -4,16 +4,27 @@ import { RiEdit2Fill } from "react-icons/ri";
 import { FaTrash } from "react-icons/fa";
 import Title from "components/Title/Title";
 import { IoSearchOutline } from "react-icons/io5";
+import { useEffect, useState } from "react";
+import api from "common/config/api.service";
 
 const Artists = () => {
+  const [artists, setArtists] = useState([]);
+
+  useEffect(() => {
+    api
+      .get("artists")
+      .then((res) => setArtists(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
-    <Layout className="border">
+    <Layout>
       <header className="flex justify-between items-center">
         <div>
           <Title>
             <h1>Bagşylar</h1>
           </Title>
-          <small>Jemi: 100</small>
+          <small>Jemi: {artists && artists.meta && artists.meta.total}</small>
         </div>
 
         <div className="bg-gray-900 w-6/12 xl:flex items-center justify-between rounded-xl overflow-hidden hidden">
@@ -37,30 +48,38 @@ const Artists = () => {
         </NavLink>
       </header>
 
-      <section className="grid grid-cols-12 gap-4 my-10">
-        <aside className="col-span-12 lg:col-span-6 xl:col-span-4 relative duration-500 bg-slate-900 rounded-xl p-2">
-          <img
-            className="w-full rounded-xl hover:brightness-125 transform duration-500"
-            src="http://yeketak.com/assets/images/sliders/gurtly.webp"
-            alt="slider"
-          />
-          <article className="my-5 px-2 md:px-5">
-            <div className=" font-semibold">Hajy Ýazmämmedow</div>
-            <div className="w-full truncate hover mt-2 text-gray-400">
-              Dostlar iki sany accanut bar satjak aljak bolsanyz teswir
-              galdyryn, her accanut ucin 50 manat. Dostlar iki sany accanut bar
-              satjak aljak bolsanyz teswir galdyryn, her accanut ucin 50 manat.
-            </div>
-          </article>
-          <aside className="flex items-center absolute top-3 right-3">
-            <div className="mr-2 bg-blue-300 bg-opacity-50 cursor-pointer hover:bg-opacity-100 duration-500 backdrop-blur w-14 h-14 flex justify-center items-center rounded-xl">
-              <RiEdit2Fill size={22} />
-            </div>
-            <div className="bg-red-300 bg-opacity-50 cursor-pointer hover:bg-opacity-100 duration-500 backdrop-blur w-14 h-14 flex justify-center items-center rounded-xl">
-              <FaTrash size={20} />
-            </div>
-          </aside>
-        </aside>
+      <section className="grid grid-cols-12 gap-5 xl:gap-10 my-10">
+        {artists &&
+          artists.data &&
+          artists.data.map((artist, index) => {
+            return (
+              <colgroup
+                key={index}
+                className="col-span-12 lg:col-span-6 xl:col-span-2 relative duration-500 bg-slate-900 shadow-xl shadow-slate-800 rounded-xl p-4"
+              >
+                <img
+                  className="xl:w-72 w-full rounded-xl hover:brightness-125 transform duration-500"
+                  src={artist.image}
+                  alt="slider"
+                />
+                <article className="my-5 px-2 md:px-5">
+                  <div className=" font-semibold"> {artist.name} </div>
+                  <div className="w-full truncate hover mt-2 text-gray-400">
+                    {artist.biography}
+                  </div>
+                </article>
+
+                <aside className="flex flex-col items-center absolute top-3 right-3">
+                  <div className="bg-blue-400 bg-opacity-50 cursor-pointer hover:bg-opacity-100 duration-500 backdrop-blur w-8 h-8 flex justify-center items-center rounded-xl mb-2">
+                    <RiEdit2Fill size={18} />
+                  </div>
+                  <div className="bg-red-400 bg-opacity-50 cursor-pointer hover:bg-opacity-100 duration-500 backdrop-blur w-8 h-8 flex justify-center items-center rounded-xl">
+                    <FaTrash size={16} />
+                  </div>
+                </aside>
+              </colgroup>
+            );
+          })}
       </section>
     </Layout>
   );

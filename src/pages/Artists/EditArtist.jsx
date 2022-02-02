@@ -5,7 +5,7 @@ const EditArtist = () => {
   const { id } = useParams();
 
   return (
-    <Layout className="border">
+    <Layout>
       <h1> EditArtist page {id} </h1>
     </Layout>
   );
