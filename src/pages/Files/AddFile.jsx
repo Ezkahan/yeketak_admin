@@ -56,10 +56,10 @@ const AddFile = () => {
         },
       })
       .then((res) => {
-        setProgress(0);
         setTimeout(() => {
           window.location.assign("/files");
         }, 1000);
+        setProgress(0);
       })
       .catch((err) => setProgress(0));
   };

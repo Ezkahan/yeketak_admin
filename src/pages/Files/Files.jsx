@@ -20,13 +20,13 @@ const Files = () => {
   const [newfiles, setNewFiles] = useState([]);
   const [fileDelete, setFileDelete] = useState({
     delete: false,
-    file_id: null,
+    slug: null,
   });
 
-  const fileDeleteHandler = (file_id) => {
+  const fileDeleteHandler = (slug) => {
     setFileDelete({
       delete: !fileDelete.delete,
-      file_id: !fileDelete.delete ? file_id : null,
+      slug: !fileDelete.delete ? slug : null,
     });
   };
 
@@ -69,7 +69,7 @@ const Files = () => {
 
       <SmallModal isOpen={fileDelete.delete}>
         <DeleteFile
-          file_id={fileDelete.file_id}
+          slug={fileDelete.slug}
           fileDeleteHandler={fileDeleteHandler}
         />
       </SmallModal>
@@ -115,7 +115,7 @@ const Files = () => {
                     className="bg-slate-900 rounded-xl flex items-center justify-between overflow-hidden relative mb-2"
                   >
                     <NavLink
-                      to={`/file/${file.id}`}
+                      to={`/file/${file.slug}`}
                       className="w-full flex items-center p-2"
                     >
                       <img
@@ -140,7 +140,7 @@ const Files = () => {
                       </NavLink>
                       <button
                         type="button"
-                        onClick={() => fileDeleteHandler(file.id)}
+                        onClick={() => fileDeleteHandler(file.slug)}
                         className="cursor-pointer w-10 h-10 border border-red-900 text-red-500 hover:bg-red-500 hover:text-white duration-500 flex justify-center items-center rounded-xl"
                       >
                         <FaTrash size={16} />
