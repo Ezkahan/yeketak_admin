@@ -58,16 +58,13 @@ const Artists = () => {
                 className="col-span-12 lg:col-span-6 xl:col-span-2 relative duration-500 bg-slate-900 shadow-xl shadow-slate-800 rounded-xl p-4"
               >
                 <img
-                  className="xl:w-72 w-full rounded-xl hover:brightness-125 transform duration-500"
+                  className="xl:w-72 w-full h-56 object-cover rounded-xl hover:brightness-125 transform duration-500"
                   src={artist.image}
                   alt="slider"
                 />
-                <article className="my-5 px-2 md:px-5">
-                  <div className=" font-semibold"> {artist.name} </div>
-                  <div className="w-full truncate hover mt-2 text-gray-400">
-                    {artist.biography}
-                  </div>
-                </article>
+                <h1 className="px-4 pt-4 text-center font-semibold">
+                  {artist.name}
+                </h1>
 
                 <aside className="flex flex-col items-center absolute top-3 right-3">
                   <div className="bg-blue-400 bg-opacity-50 cursor-pointer hover:bg-opacity-100 duration-500 backdrop-blur w-8 h-8 flex justify-center items-center rounded-xl mb-2">

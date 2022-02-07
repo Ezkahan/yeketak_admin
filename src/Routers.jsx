@@ -11,6 +11,8 @@ import EditArtist from "pages/Artists/EditArtist";
 import Page404 from "pages/404";
 import Sliders from "pages/Sliders/Sliders";
 import AddSliders from "pages/Sliders/AddSlider";
+import Markets from "pages/Markets/Markets";
+import Services from "pages/Services/Services";
 
 const Routers = () => {
   return (
@@ -19,13 +21,16 @@ const Routers = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/files" element={<Files />} />
       <Route path="/file/add" element={<AddFile />} />
-      <Route path="/file/:id/edit" element={<EditFile />} />
-      <Route path="/file/:id" element={<ShowFile />} />
+      <Route path="/file/:slug/edit" element={<EditFile />} />
+      <Route path="/file/:slug" element={<ShowFile />} />
       <Route path="/artists" element={<Artists />} />
       <Route path="/artist/add" element={<AddArtist />} />
       <Route path="/artist/:id/edit" element={<EditArtist />} />
       <Route path="/sliders" element={<Sliders />} />
       <Route path="/slider/add" element={<AddSliders />} />
+
+      <Route path="/markets" element={<Markets />} />
+      <Route path="/services" element={<Services />} />
 
       <Route path="*" element={<Page404 />} />
     </Routes>

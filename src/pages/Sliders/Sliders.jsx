@@ -2,8 +2,23 @@ import Layout from "components/Layout/Layout";
 import { NavLink } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import Title from "components/Title/Title";
+import { useEffect, useState } from "react";
+import api from "common/config/api.service";
 
 const Sliders = () => {
+  const [slides, setSlides] = useState([]);
+
+  useEffect(() => {
+    api
+      .get("slides")
+      .then((res) => {
+        setSlides(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <Layout>
       <header className="flex justify-between items-center">
@@ -11,7 +26,7 @@ const Sliders = () => {
           <Title>
             <h1>Slaýderlar</h1>
           </Title>
-          <small>Jemi: 100</small>
+          <small>Jemi: {slides.length}</small>
         </div>
 
         <NavLink
@@ -24,28 +39,25 @@ const Sliders = () => {
         </NavLink>
       </header>
 
-      <section className="grid grid-cols-12 gap-4 my-10">
-        <aside className="col-span-12 lg:col-span-6 relative">
-          <img
-            className="w-full rounded-xl hover:brightness-125 transform duration-500"
-            src="http://yeketak.com/assets/images/sliders/gurtly.webp"
-            alt="slider"
-          />
-          <div className="bg-red-300 bg-opacity-50 backdrop-blur absolute bottom-3 right-3 w-16 h-16 rounded-xl border flex items-center justify-center hover:bg-opacity-100 duration-500 cursor-pointer">
-            <FaTrash size={20} />
-          </div>
-        </aside>
-
-        <aside className="col-span-12 lg:col-span-6 relative">
-          <img
-            className="w-full rounded-xl hover:brightness-125 transform duration-500"
-            src="http://yeketak.com/assets/images/sliders/summul-doner.webp"
-            alt="slider"
-          />
-          <div className="bg-red-300 bg-opacity-50 backdrop-blur absolute bottom-3 right-3 w-16 h-16 rounded-xl border flex items-center justify-center hover:bg-opacity-100 duration-500 cursor-pointer">
-            <FaTrash size={20} />
-          </div>
-        </aside>
+      <section className="grid grid-cols-12 gap-10 my-10">
+        {slides.length > 0 &&
+          slides.map((slide, index) => {
+            return (
+              <aside
+                key={index}
+                className="col-span-12 lg:col-span-6 relative bg-slate-900 rounded-3xl overflow-hidden"
+              >
+                <img
+                  className="w-full rounded-xl brightness-75 hover:brightness-125 transform duration-500"
+                  src={slide.image}
+                  alt="Slide"
+                />
+                <div className="bg-red-500 bg-opacity-90 backdrop-blur absolute top-3 right-3 w-12 h-12 rounded-full flex items-center justify-center hover:bg-opacity-100 duration-500 cursor-pointer">
+                  <FaTrash size={20} />
+                </div>
+              </aside>
+            );
+          })}
       </section>
     </Layout>
   );

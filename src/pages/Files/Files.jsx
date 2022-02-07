@@ -133,7 +133,7 @@ const Files = () => {
 
                     <div className="flex items-center mr-2">
                       <NavLink
-                        to={`/file/${file.id}/edit`}
+                        to={`/file/${file.slug}/edit`}
                         className="cursor-pointer w-10 h-10 mr-2 border border-blue-900 text-blue-500 hover:bg-blue-500 hover:text-white duration-500 flex justify-center items-center rounded-xl"
                       >
                         <RiEdit2Fill size={18} />
