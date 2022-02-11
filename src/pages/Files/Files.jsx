@@ -28,16 +28,11 @@ const Files = () => {
       delete: !fileDelete.delete,
       slug: !fileDelete.delete ? slug : null,
     });
+
+    getFiles()
   };
 
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-
-    setIsLoading(true);
-
+  const getFiles = () => {
     api
       .get(`files?page=${page}`)
       .then((res) => {
@@ -49,6 +44,17 @@ const Files = () => {
       .catch((err) => {
         setIsLoading(false);
       });
+  }
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
+    setIsLoading(true);
+
+    getFiles()
   }, [page]);
 
   useEffect(() => {
@@ -105,7 +111,7 @@ const Files = () => {
         </header>
 
         <section className="grid grid-cols-12 gap-5 my-7">
-          <main className="col-span-12 xl:col-span-9 order-2 xl:order-1 relative">
+          <main className="col-span-12 xl:col-span-8 order-2 xl:order-1 relative">
             {files &&
               files.data &&
               files.data.map((file, index) => {
@@ -177,7 +183,7 @@ const Files = () => {
             </Footer>
           </main>
 
-          <nav className="col-span-12 xl:col-span-3 bg-gray-600 rounded-3xl py-4 px-4 order-1 xl:order-2 xl:h-125 sticky top-10">
+          <nav className="col-span-12 xl:col-span-4 bg-gray-600 rounded-3xl py-4 px-4 order-1 xl:order-2 xl:h-125 sticky top-10">
             <header>
               <Title>Täze faýllar</Title>
               <small>Jemi: {newfiles.length}</small>

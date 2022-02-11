@@ -55,7 +55,7 @@ const Artists = () => {
             return (
               <colgroup
                 key={index}
-                className="col-span-12 lg:col-span-6 xl:col-span-2 relative duration-500 bg-slate-900 shadow-xl shadow-slate-800 rounded-xl p-4"
+                className="col-span-12 lg:col-span-6 xl:col-span-3 relative duration-500 bg-slate-900 shadow-xl shadow-slate-800 rounded-xl p-4"
               >
                 <img
                   className="xl:w-72 w-full h-56 object-cover rounded-xl hover:brightness-125 transform duration-500"
