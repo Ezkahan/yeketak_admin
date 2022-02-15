@@ -14,7 +14,7 @@ const AddFile = () => {
     word_author: "",
     image: "",
     file: "",
-    type: "music",
+    type: "mp3",
     expires_at: "",
   });
 

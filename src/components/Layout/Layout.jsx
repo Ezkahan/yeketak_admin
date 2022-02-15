@@ -1,11 +1,15 @@
 import useToggle from "hooks/useToggle";
 import Sidebar from "./Sidebar";
+import Cookies from "js-cookie";
+import { Navigate } from "react-router-dom";
 
 const Layout = ({ children, className }) => {
   const { isOpen, toggle } = useToggle(true);
+  const token = Cookies.get("yeketak_token");
 
   return (
     <main className="flex font-montserrat-medium pb-12 my-2 xl:pb-0 select-none overflow-x-hidden">
+      {!token && <Navigate to="/login" />}
       <nav>
         <Sidebar isOpen={isOpen} toggle={toggle} />
       </nav>

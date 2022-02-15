@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookie from 'js-cookie'
 
-const token = Cookie.get('token')
+const token = Cookie.get('yeketak_token')
 
 const api = axios.create({
     baseURL: 'http://localhost:8000/api',
@@ -9,7 +9,8 @@ const api = axios.create({
     headers: {
         "Accept" : "application/json",
         "Content-Type" : "application/json",
-    }
+    },
+    // withCredentials: true,
 })
 
 api.interceptors.request.use(config => {
