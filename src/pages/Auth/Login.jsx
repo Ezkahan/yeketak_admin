@@ -1,9 +1,10 @@
 import api from "common/config/api.service";
 import Cookies from "js-cookie";
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const token = Cookies.get("yeketak_token");
   const [formState, setFormState] = useState({
     email: "",
@@ -19,17 +20,18 @@ const Login = () => {
 
     api
       .post("login", formState)
-      .then((res) =>
-        Cookies.set("yeketak_token", res.data.token, { expires: 2 })
-      )
+      .then((res) => {
+        Cookies.set("yeketak_token", res.data.token, { expires: 2 });
+        navigate("/");
+      })
       .catch((err) => console.log(err));
   };
 
   return (
-    <section className="flex items-center justify-center h-screen">
+    <section className="flex items-center justify-center h-screen font-montserrat-medium">
       {token && <Navigate to="/" />}
-      <main className="bg-slate-900 p-5 xl:px-10 rounded-2xl w-125 shadow-2xl shadow-gray-900">
-        <header className="flex items-center justify-center mb-8">
+      <main className="bg-slate-900 px-6 py-3 xl:px-10 rounded-2xl w-96 xl:w-125 shadow-2xl shadow-gray-900">
+        <header className="flex items-center justify-center mt-3 mb-6">
           <svg
             className="w-10 h-10 text-yellow-500"
             fill="none"

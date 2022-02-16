@@ -12,6 +12,7 @@ import Footer from "components/Footer/Footer";
 import PageLoader from "components/Loader/PageLoader";
 import SmallModal from "components/SmallModal/SmallModal";
 import DeleteFile from "./DeleteFile";
+import { getFiles } from "api/services/FileService";
 
 const Files = () => {
   const [page, setPage] = useState(1);
@@ -29,12 +30,11 @@ const Files = () => {
       slug: !fileDelete.delete ? slug : null,
     });
 
-    getFiles()
+    loadFiles();
   };
 
-  const getFiles = () => {
-    api
-      .get(`files?page=${page}`)
+  const loadFiles = () => {
+    getFiles(page)
       .then((res) => {
         setTimeout(() => {
           setIsLoading(false);
@@ -42,9 +42,11 @@ const Files = () => {
         setFiles(res.data);
       })
       .catch((err) => {
-        setIsLoading(false);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
       });
-  }
+  };
 
   useEffect(() => {
     window.scrollTo({
@@ -54,7 +56,7 @@ const Files = () => {
 
     setIsLoading(true);
 
-    getFiles()
+    loadFiles();
   }, [page]);
 
   useEffect(() => {
@@ -164,14 +166,14 @@ const Files = () => {
                 nextClassName={"hidden"}
                 breakLabel={"..."}
                 breakClassName={
-                  "bg-slate-900 text-white hover:bg-yellow-300 md:inline-flex relative items-center m-1 px-5 py-3 text-sm rounded-3xl duration-500 border-2 border-yellow-900/80"
+                  "bg-slate-900 page-link text-white hover:bg-yellow-300 md:inline-flex relative items-center m-1 text-sm rounded-3xl duration-500 border-2 border-yellow-900/80"
                 }
                 pageCount={files && files.meta && files.meta.last_page}
                 marginPagesDisplayed={1}
                 pageRangeDisplayed={3}
                 onPageChange={(data) => setPage(data.selected + 1)}
                 pageClassName={
-                  "bg-slate-900 text-white hover:bg-yellow-300 md:inline-flex relative items-center m-1 px-5 py-3 text-sm rounded-3xl duration-500 border-2 border-yellow-300"
+                  "bg-slate-900 page-link text-white hover:bg-yellow-300 md:inline-flex relative items-center m-1 text-sm rounded-3xl duration-500 border-2 border-yellow-300"
                 }
                 containerClassName={
                   "font-montserrat-bold relative z-0 inline-flex justify-center rounded-md w-full"

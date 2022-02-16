@@ -4,8 +4,10 @@ import Layout from "components/Layout/Layout";
 import Title from "components/Title/Title";
 import { useState } from "react";
 import FileLoader from "components/Loader/FileLoader";
+import { useNavigate } from "react-router-dom";
 
 const AddFile = () => {
+  const navigate = useNavigate();
   const [progress, setProgress] = useState(0);
   const [formState, setFormState] = useState({
     name: "",
@@ -57,7 +59,7 @@ const AddFile = () => {
       })
       .then((res) => {
         setTimeout(() => {
-          window.location.assign("/files");
+          navigate("/files");
         }, 1000);
         setProgress(0);
       })

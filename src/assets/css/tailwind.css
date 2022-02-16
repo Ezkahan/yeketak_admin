@@ -34,14 +34,23 @@
   }
 
   .h-115 {
-    height: 26rem;
+    height: 26.5rem;
   }
 
   .w-125 {
     width: 30rem;
   }
 
+  .w-150 {
+    width: 35rem;
+  }
+
   .h-125 {
     height: 29rem;
   }
+
+  .page-link a {
+    display: block;
+    padding: .5rem 1rem;
+}
 }

@@ -55,18 +55,22 @@ const Artists = () => {
             return (
               <colgroup
                 key={index}
-                className="col-span-12 lg:col-span-6 xl:col-span-3 relative duration-500 bg-slate-900 shadow-xl shadow-slate-800 rounded-xl p-4"
+                className="flex justify-between items-center col-span-12 xl:col-span-4 relative duration-500 bg-slate-900 shadow-xl shadow-slate-800 rounded-xl p-4"
               >
-                <img
-                  className="xl:w-72 w-full h-56 object-cover rounded-xl hover:brightness-125 transform duration-500"
-                  src={artist.image}
-                  alt="slider"
-                />
-                <h1 className="px-4 pt-4 text-center font-semibold">
-                  {artist.name}
-                </h1>
+                <aside className="flex items-center">
+                  <img
+                    className="h-24 object-cover rounded-xl hover:brightness-125 transform duration-500"
+                    src={artist.image}
+                    alt="slider"
+                  />
+                  <div className="flex flex-col px-4">
+                    <h1 className="font-semibold mb-2">{artist.name}</h1>
+                    <small className="text-yellow-500 mb-1">Aýdymlar: 10</small>
+                    <small className="text-yellow-500 mb-1">Klipler: 10</small>
+                  </div>
+                </aside>
 
-                <aside className="flex flex-col items-center absolute top-3 right-3">
+                <aside className="flex flex-col items-center">
                   <div className="bg-blue-400 bg-opacity-50 cursor-pointer hover:bg-opacity-100 duration-500 backdrop-blur w-8 h-8 flex justify-center items-center rounded-xl mb-2">
                     <RiEdit2Fill size={18} />
                   </div>
