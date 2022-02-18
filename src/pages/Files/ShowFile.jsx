@@ -3,7 +3,7 @@ import Layout from "components/Layout/Layout";
 import { useEffect } from "react";
 import { IoArrowUndoCircleOutline } from "react-icons/io5";
 import { NavLink, useParams } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 
 const ShowFile = () => {
   const { slug } = useParams();
