@@ -12,7 +12,7 @@ import Footer from "components/Footer/Footer";
 import PageLoader from "components/Loader/PageLoader";
 import SmallModal from "components/SmallModal/SmallModal";
 import DeleteFile from "./DeleteFile";
-import { getFiles } from "api/services/FileService";
+import { getFiles, getUncheckedFiles } from "api/services/FileService";
 
 const Files = () => {
   const [page, setPage] = useState(1);
@@ -60,8 +60,7 @@ const Files = () => {
   }, [page]);
 
   useEffect(() => {
-    api
-      .get("files/new")
+    getUncheckedFiles()
       .then((res) => {
         setNewFiles(res.data.data);
         setTimeout(() => {

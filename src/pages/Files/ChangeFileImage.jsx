@@ -3,7 +3,7 @@ import humanFileSize from "common/helpers/filesize";
 import FileLoader from "components/Loader/FileLoader";
 import { useState } from "react";
 
-const AddSlider = ({ toggleSliderAdd, getSlides }) => {
+const ChangeFileImage = ({ slug, close }) => {
   const [progress, setProgress] = useState(0);
   const [formState, setFormState] = useState({
     image_name: "",
@@ -24,9 +24,10 @@ const AddSlider = ({ toggleSliderAdd, getSlides }) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("image", formState.image);
+    formData.append("_method", "PUT");
 
     api
-      .post("slides", formData, {
+      .post(`files/${slug}`, formData, {
         headers: {
           "Content-type": "multipart/form-data",
         },
@@ -37,8 +38,8 @@ const AddSlider = ({ toggleSliderAdd, getSlides }) => {
       })
       .then((res) => {
         setTimeout(() => {
-          getSlides();
-          toggleSliderAdd();
+          close();
+          window.location.assign(`/file/${slug}/edit`);
         }, 1000);
         setProgress(0);
       })
@@ -50,7 +51,9 @@ const AddSlider = ({ toggleSliderAdd, getSlides }) => {
       {progress > 0 && <FileLoader percentage={progress} />}
       <section className="text-yellow-500">
         <header>
-          <h1 className="text-xl font-montserrat-bold mb-5">Slaýder goş</h1>
+          <h1 className="text-xl font-montserrat-bold mb-5">
+            Faýl suratyny üýtgetmek
+          </h1>
         </header>
         <form onSubmit={handleSubmit} className="flex flex-col">
           {formState.image && (
@@ -87,10 +90,11 @@ const AddSlider = ({ toggleSliderAdd, getSlides }) => {
 
           <footer className="flex justify-between mt-5">
             <button className="bg-yellow-500 hover:bg-yellow-700 duration-300 text-slate-900 font-montserrat-bold px-7 py-2.5 rounded-lg flex items-center">
-              Ýükle
+              Üýtget
             </button>
             <button
-              onClick={toggleSliderAdd}
+              type="button"
+              onClick={close}
               className="border border-gray-700 hover:bg-gray-700 duration-900 text-slate-400 px-5 py-2.5 rounded-lg"
             >
               Bes et
@@ -102,4 +106,4 @@ const AddSlider = ({ toggleSliderAdd, getSlides }) => {
   );
 };
 
-export default AddSlider;
+export default ChangeFileImage;
