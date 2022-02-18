@@ -29,12 +29,12 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #FDE047;
+    background: #fde047;
     border-radius: 3rem;
   }
 
   .h-115 {
-    height: 26.5rem;
+    height: 31rem;
   }
 
   .w-125 {
@@ -46,11 +46,11 @@
   }
 
   .h-125 {
-    height: 29rem;
+    height: 35rem;
   }
 
   .page-link a {
     display: block;
-    padding: .5rem 1rem;
-}
+    padding: 0.5rem 1rem;
+  }
 }

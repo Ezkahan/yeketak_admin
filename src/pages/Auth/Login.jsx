@@ -24,7 +24,7 @@ const Login = () => {
         Cookies.set("yeketak_token", res.data.token, { expires: 2 });
         navigate("/");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => alert('Email ýa-da açarsöz nädogry'));
   };
 
   return (
