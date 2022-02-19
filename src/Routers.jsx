@@ -13,6 +13,7 @@ import Sliders from "pages/Sliders/Sliders";
 import AddSliders from "pages/Sliders/AddSlider";
 import Markets from "pages/Markets/Markets";
 import Services from "pages/Services/Services";
+import Users from "pages/Users/Users";
 
 const Routers = () => {
   return (
@@ -31,6 +32,7 @@ const Routers = () => {
 
       <Route path="/markets" element={<Markets />} />
       <Route path="/services" element={<Services />} />
+      <Route path="/users" element={<Users />} />
 
       <Route path="*" element={<Page404 />} />
     </Routes>

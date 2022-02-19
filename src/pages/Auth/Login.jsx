@@ -1,10 +1,9 @@
 import api from "common/config/api.service";
 import Cookies from "js-cookie";
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
-  const navigate = useNavigate();
   const token = Cookies.get("yeketak_token");
   const [formState, setFormState] = useState({
     email: "",
@@ -22,9 +21,9 @@ const Login = () => {
       .post("login", formState)
       .then((res) => {
         Cookies.set("yeketak_token", res.data.token, { expires: 2 });
-        navigate("/");
+        window.location.assign("/");
       })
-      .catch((err) => alert('Email ýa-da açarsöz nädogry'));
+      .catch((err) => alert("Email ýa-da açarsöz nädogry"));
   };
 
   return (
