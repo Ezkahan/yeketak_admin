@@ -3,7 +3,7 @@ import { deleteFile } from "api/services/FileService";
 
 const DeleteFile = ({ slug, fileDeleteHandler }) => {
   const fileDelete = () => {
-    deleteFile
+    deleteFile(slug)
       .then((res) => {
         fileDeleteHandler(null);
         console.log(res);
@@ -25,7 +25,7 @@ const DeleteFile = ({ slug, fileDeleteHandler }) => {
 
       <footer className="flex items-center justify-between">
         <button
-          onClick={() => fileDelete()}
+          onClick={fileDelete}
           className="bg-red-500 hover:bg-red-700 duration-300 text-red-100 px-5 py-2.5 rounded-lg flex items-center"
         >
           <IoTrashOutline size={20} className="mr-2" /> Poz
