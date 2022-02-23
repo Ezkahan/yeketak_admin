@@ -94,7 +94,7 @@ const Files = () => {
             <input
               type="search"
               placeholder="Gözleg"
-              className="bg-transparent p-3 pl-5 w-full"
+              className="bg-transparent p-2 pl-5 w-full"
             />
             <button className="bg-yellow-300 hover:bg-yellow-500 duration-300 text-gray-900 p-1 rounded-xl m-2">
               <IoSearchOutline size={28} />
@@ -111,28 +111,27 @@ const Files = () => {
           </NavLink>
         </header>
 
-        <section className="grid grid-cols-12 gap-5 my-7">
-          <main className="col-span-12 xl:col-span-8 order-2 xl:order-1 relative">
+        <section className="grid grid-cols-12 gap-y-2 gap-x-5 my-7">
             {files &&
               files.data &&
               files.data.map((file, index) => {
                 return (
                   <aside
                     key={index}
-                    className="bg-slate-900 rounded-xl flex items-center justify-between overflow-hidden relative mb-2"
+                    className="col-span-6 bg-slate-900 rounded-xl flex items-center justify-between overflow-hidden relative"
                   >
                     <NavLink
                       to={`/file/${file.slug}`}
-                      className="w-full flex items-center p-2"
+                      className="w-full flex items-center p-1"
                     >
                       <img
-                        className="w-16 h-16 object-cover rounded-xl"
+                        className="w-12 h-12 object-cover rounded-xl"
                         src={file.image}
                         alt="slider"
                       />
-                      <article className="my-1 px-2 md:px-5">
-                        <div className="font-semibold">{file.name}</div>
-                        <div className="w-full truncate hover mt-1 text-gray-400">
+                      <article className="my-1 px-3">
+                        <div className="font-semibold text-sm">{file.name}</div>
+                        <div className="w-full text-xs truncate hover mt-1 text-gray-400">
                           {file.artist_name}
                         </div>
                       </article>
@@ -182,41 +181,6 @@ const Files = () => {
                 }
               />
             </Footer>
-          </main>
-
-          <nav className="col-span-12 xl:col-span-4 bg-gray-600 rounded-3xl py-4 px-4 order-1 xl:order-2 xl:h-115 sticky top-10">
-            <header>
-              <Title>Täze faýllar</Title>
-              <small>Jemi: {newfiles.length}</small>
-            </header>
-
-            <div className="mt-5">
-              {newfiles &&
-                newfiles.map((newfile, index) => {
-                  return (
-                    <NavLink
-                      to={`/file/${newfile.id}`}
-                      key={index}
-                      className="bg-slate-900 rounded-xl flex items-center justify-between mb-2"
-                    >
-                      <div className="w-full flex items-center p-2">
-                        <img
-                          className="w-12 h-12 object-cover rounded-xl"
-                          src={newfile.image}
-                          alt="surat"
-                        />
-                        <article className="my-1 px-2 md:px-3">
-                          <div className="text-sm"> {newfile.name} </div>
-                          <div className="text-xs w-full truncate hover mt-1 text-gray-400">
-                            {newfile.artist_name}
-                          </div>
-                        </article>
-                      </div>
-                    </NavLink>
-                  );
-                })}
-            </div>
-          </nav>
         </section>
       </Layout>
     </>

@@ -34,7 +34,7 @@ const Sidebar = ({ isOpen, toggle }) => {
       <nav className="flex justify-around xl:flex-col xl:mt-16 py-2 xl:py-0">
         <NavLink
           to="/"
-          className={`bg-slate-800 text-gray-400 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-3 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-xl relative overflow-hidden ${
+          className={`text-gray-200 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-2 xl:mb-1 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-xl relative overflow-hidden ${
             isOpen ? "px-5" : "flex justify-center items-center"
           }`}
         >
@@ -50,7 +50,7 @@ const Sidebar = ({ isOpen, toggle }) => {
 
         <NavLink
           to="/files"
-          className={`bg-slate-800 text-gray-400 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-3 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-xl relative overflow-hidden ${
+          className={`text-gray-200 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-2 xl:mb-1 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-xl relative overflow-hidden ${
             isOpen ? "px-5" : "flex justify-center items-center"
           }`}
         >
@@ -66,7 +66,7 @@ const Sidebar = ({ isOpen, toggle }) => {
 
         <NavLink
           to="/artists"
-          className={`bg-slate-800 text-gray-400 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-3 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-xl relative overflow-hidden ${
+          className={`text-gray-200 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-2 xl:mb-1 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-xl relative overflow-hidden ${
             isOpen ? "px-5" : "flex justify-center items-center"
           }`}
         >
@@ -82,7 +82,7 @@ const Sidebar = ({ isOpen, toggle }) => {
 
         <NavLink
           to="/sliders"
-          className={`bg-slate-800 text-gray-400 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-3 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-xl relative overflow-hidden ${
+          className={`text-gray-200 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-2 xl:mb-1 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-xl relative overflow-hidden ${
             isOpen ? "px-5" : "flex justify-center items-center"
           }`}
         >
@@ -98,7 +98,7 @@ const Sidebar = ({ isOpen, toggle }) => {
 
         <NavLink
           to="/markets"
-          className={`bg-slate-800 text-gray-400 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-3 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-xl relative overflow-hidden ${
+          className={`text-gray-200 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-2 xl:mb-1 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-xl relative overflow-hidden ${
             isOpen ? "px-5" : "flex justify-center items-center"
           }`}
         >
@@ -114,7 +114,7 @@ const Sidebar = ({ isOpen, toggle }) => {
 
         <NavLink
           to="/services"
-          className={`bg-slate-800 text-gray-400 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-3 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-xl relative overflow-hidden ${
+          className={`text-gray-200 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-2 xl:mb-1 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-xl relative overflow-hidden ${
             isOpen ? "px-5" : "flex justify-center items-center"
           }`}
         >
@@ -130,7 +130,7 @@ const Sidebar = ({ isOpen, toggle }) => {
 
         <NavLink
           to="/users"
-          className={`bg-slate-800 text-gray-400 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-3 xl:mb-2 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-xl relative overflow-hidden ${
+          className={`text-gray-200 hover:bg-yellow-300 hover:text-gray-900 duration-300 py-2 xl:mb-1 w-16 h-16 xl:w-auto xl:h-auto flex items-center rounded-xl relative overflow-hidden ${
             isOpen ? "px-5" : "flex justify-center items-center"
           }`}
         >

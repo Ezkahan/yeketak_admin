@@ -38,7 +38,7 @@ const Users = () => {
           </div>
         </header>
 
-        <main className="flex flex-col my-5">
+        <main className="grid grid-cols-12 gap-2 my-5">
           {users.length === 0 && <Emptylist message="Sanaw boş" />}
 
           {users.length > 0 &&
@@ -46,9 +46,10 @@ const Users = () => {
               return (
                 <aside
                   key={index}
-                  className="flex items-center bg-slate-900 mb-3 rounded-lg px-5 py-3"
+                  className="col-span-12 xl:col-span-6 flex flex-col items-start bg-slate-900 rounded-lg px-5 py-3"
                 >
                   <p>{user.email}</p>
+                  <small className="bg-yellow-600 text-slate-900 text-xs rounded py-0.5 px-1">{user.type}</small>
                 </aside>
               );
             })}

@@ -48,14 +48,14 @@ const Artists = () => {
         </NavLink>
       </header>
 
-      <section className="grid grid-cols-12 gap-5 xl:gap-10 my-10">
+      <section className="grid grid-cols-12 gap-5 my-10">
         {artists &&
           artists.data &&
           artists.data.map((artist, index) => {
             return (
               <colgroup
                 key={index}
-                className="flex justify-between items-center col-span-12 xl:col-span-4 relative duration-500 bg-slate-900 shadow-xl shadow-slate-800 rounded-xl p-4"
+                className="flex justify-between items-center col-span-12 xl:col-span-6 relative duration-500 bg-slate-900 shadow-xl shadow-slate-800 rounded-xl p-4"
               >
                 <aside className="flex items-center">
                   <img
@@ -65,8 +65,8 @@ const Artists = () => {
                   />
                   <div className="flex flex-col px-4">
                     <h1 className="font-semibold mb-2">{artist.name}</h1>
-                    <small className="text-yellow-500 mb-1">Aýdymlar: 10</small>
-                    <small className="text-yellow-500 mb-1">Klipler: 10</small>
+                    <small className="text-yellow-500 mb-1">Aýdymlar: {artist.music_total}</small>
+                    <small className="text-yellow-500 mb-1">Klipler: {artist.video_total}</small>
                   </div>
                 </aside>
 

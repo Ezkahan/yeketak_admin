@@ -48,7 +48,7 @@ const AddFile = () => {
     formData.append("expires_at", formState.expires_at);
 
     api
-      .post("file/store", formData, {
+      .post("files", formData, {
         headers: {
           "Content-type": "multipart/form-data",
         },

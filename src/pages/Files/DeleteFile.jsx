@@ -15,9 +15,12 @@ const DeleteFile = ({ slug, fileDeleteHandler }) => {
   return (
     <main className="flex flex-col justify-between h-full font-montserrat-medium">
       <header>
-        <h1 className="text-xl font-montserrat-bold text-center">
+        <h1 className="text-xl font-montserrat-bold">
           Faýl pozmagy tassyklaň!
         </h1>
+        <small className="text-sm block mt-2 mb-3">
+          {slug}
+        </small>
       </header>
 
       <footer className="flex items-center justify-between">
