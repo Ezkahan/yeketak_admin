@@ -73,7 +73,7 @@ const Files = () => {
         <header className="flex justify-between items-center">
           <div>
             <Title>
-              <h1>Faýllar</h1>
+              <h1>Faýllar sanawy</h1>
             </Title>
             <small>Jemi: {files && files.meta && files.meta.total}</small>
           </div>
