@@ -1,0 +1,22 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    name: deploy project
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: [16.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use nodejs ${{ matrix.node-version }}
+      - uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.IP }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: cd /var/www/yeketak.com.tm/admin && touch test.txt && echo "Deploy success" >> test.txt
