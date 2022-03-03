@@ -95,8 +95,8 @@ const EditFile = () => {
       <Layout className="bg-gray-900 rounded-xl xl:px-10">
         <Title> Faýl üýtgetmek </Title>
 
-        <section className="grid grid-cols-12 items-center gap-5">
-          <aside className="col-span-12 lg:col-span-4 py-5">
+        <section className="grid grid-cols-12 items-start gap-5">
+          <aside className="col-span-12 lg:col-span-4 py-10">
             {
               <img
                 onClick={imageChangeHandler}

@@ -79,6 +79,56 @@ const AddFile = () => {
           <div className="relative col-span-12 lg:col-span-6 border border-slate-800 group bg-slate-800 rounded-lg">
             <div
               className={`bg-slate-800 absolute left-3 top-3 px-2 ${
+                formState.file_name?.length && "-translate-y-7 text-yellow-300"
+              } transform group-focus-within:-translate-y-7 group-hover:-translate-y-7 rounded-lg duration-500 text-gray-300`}
+            >
+              Faýl saýla
+            </div>
+            {formState.file_name && (
+              <label
+                htmlFor="file"
+                className="bg-transparent absolute left-5 top-3 truncate"
+              >
+                {formState.file_name} (
+                {humanFileSize(formState.file_size / 1024)})
+              </label>
+            )}
+            <input
+              type="file"
+              name="file"
+              onChange={(e) => inputFileOnChange(e)}
+              className="opacity-0 p-2 w-full"
+            />
+          </div>
+
+          <div className="relative col-span-12 lg:col-span-6 border border-slate-800 group bg-slate-800 rounded-lg">
+            <div
+              className={`bg-slate-800 absolute left-3 top-3 px-2 ${
+                formState.image_name?.length && "-translate-y-7 text-yellow-300"
+              } transform group-focus-within:-translate-y-7 group-hover:-translate-y-7 rounded-lg duration-500 text-gray-300`}
+            >
+              Surat saýla
+            </div>
+            {formState.image_name && (
+              <label
+                htmlFor="image"
+                className="bg-transparent absolute left-5 top-3 truncate"
+              >
+                {formState.image_name} (
+                {humanFileSize(formState.image_size / 1024)})
+              </label>
+            )}
+            <input
+              type="file"
+              name="image"
+              onChange={(e) => inputFileOnChange(e)}
+              className="opacity-0 p-2 w-full"
+            />
+          </div>
+
+          <div className="relative col-span-12 lg:col-span-6 border border-slate-800 group bg-slate-800 rounded-lg">
+            <div
+              className={`bg-slate-800 absolute left-3 top-3 px-2 ${
                 formState.name.length && "-translate-y-7"
               } transform group-focus-within:-translate-y-7 group-hover:-translate-y-7 group-focus-within:text-yellow-300 rounded-lg duration-500 text-gray-300`}
             >
@@ -114,7 +164,7 @@ const AddFile = () => {
                 formState.music_author.length && "-translate-y-7"
               } transform group-focus-within:-translate-y-7 group-hover:-translate-y-7 group-focus-within:text-yellow-300 rounded-lg duration-500 text-gray-300`}
             >
-              Faýlyň awtory
+              Sazy
             </div>
             <input
               onChange={handleChange}
@@ -130,7 +180,7 @@ const AddFile = () => {
                 formState.word_author.length && "-translate-y-7"
               } transform group-focus-within:-translate-y-7 group-hover:-translate-y-7 group-focus-within:text-yellow-300 rounded-lg duration-500 text-gray-300`}
             >
-              Faýlyň sözi
+              Sözi
             </div>
             <input
               onChange={handleChange}
@@ -164,56 +214,6 @@ const AddFile = () => {
               name="expires_at"
               type="number"
               className="bg-transparent p-3 w-full"
-            />
-          </div>
-
-          <div className="relative col-span-12 lg:col-span-6 border border-slate-800 group bg-slate-800 rounded-lg">
-            <div
-              className={`bg-slate-800 absolute left-3 top-3 px-2 ${
-                formState.image_name?.length && "-translate-y-7 text-yellow-300"
-              } transform group-focus-within:-translate-y-7 group-hover:-translate-y-7 rounded-lg duration-500 text-gray-300`}
-            >
-              Surat saýla
-            </div>
-            {formState.image_name && (
-              <label
-                htmlFor="image"
-                className="bg-transparent absolute left-5 top-3 truncate"
-              >
-                {formState.image_name} (
-                {humanFileSize(formState.image_size / 1024)})
-              </label>
-            )}
-            <input
-              type="file"
-              name="image"
-              onChange={(e) => inputFileOnChange(e)}
-              className="opacity-0 p-2 w-full"
-            />
-          </div>
-
-          <div className="relative col-span-12 lg:col-span-6 border border-slate-800 group bg-slate-800 rounded-lg">
-            <div
-              className={`bg-slate-800 absolute left-3 top-3 px-2 ${
-                formState.file_name?.length && "-translate-y-7 text-yellow-300"
-              } transform group-focus-within:-translate-y-7 group-hover:-translate-y-7 rounded-lg duration-500 text-gray-300`}
-            >
-              Faýl saýla
-            </div>
-            {formState.file_name && (
-              <label
-                htmlFor="file"
-                className="bg-transparent absolute left-5 top-3 truncate"
-              >
-                {formState.file_name} (
-                {humanFileSize(formState.file_size / 1024)})
-              </label>
-            )}
-            <input
-              type="file"
-              name="file"
-              onChange={(e) => inputFileOnChange(e)}
-              className="opacity-0 p-2 w-full"
             />
           </div>
 

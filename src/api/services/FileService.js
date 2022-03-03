@@ -1,8 +1,8 @@
 import api from "common/config/api.service"
 
 
-export const getFiles = (page) => {
-    return api.get(`files?page=${page}`)
+export const getFiles = (page, searchTerm) => {
+    return api.get(`files?page=${page}&search=${searchTerm}`)
 }
 
 export const getUncheckedFiles = () => {

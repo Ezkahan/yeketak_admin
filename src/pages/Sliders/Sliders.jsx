@@ -85,7 +85,7 @@ const Sliders = () => {
           </button>
         </header>
 
-        <section className="grid grid-cols-12 gap-10 my-10">
+        <section className="grid grid-cols-12 gap-4 lg:gap-10 my-10">
           {slides.length > 0 &&
             slides.map((slide, index) => {
               return (

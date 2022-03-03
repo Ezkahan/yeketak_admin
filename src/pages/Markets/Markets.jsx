@@ -4,6 +4,7 @@ import Title from "components/Title/Title";
 import { IoSearchOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import api from "common/config/api.service";
+import Emptylist from "components/Emptylist/Emptylist";
 
 const Markets = () => {
   const [markets, setMarkets] = useState([]);
@@ -11,7 +12,9 @@ const Markets = () => {
   useEffect(() => {
     api
       .get("markets")
-      .then((res) => setMarkets(res.data))
+      .then((res) => {
+        setMarkets(res.data.data);
+      })
       .catch((err) => console.log(err));
   }, []);
 
@@ -20,7 +23,7 @@ const Markets = () => {
       <header className="flex justify-between items-center">
         <div>
           <Title>
-            <h1>Marketlar</h1>
+            <h1>Magazinlar</h1>
           </Title>
           <small>Jemi: {markets && markets.meta && markets.meta.total}</small>
         </div>
@@ -46,8 +49,19 @@ const Markets = () => {
         </NavLink>
       </header>
 
-      <section className="grid grid-cols-12 gap-5 xl:gap-10 my-10">
-        Markets list
+      <section className="bg-slate-900 text-white p-5 w-full my-10 rounded-lg">
+        <main>
+          {markets.length === 0 && <Emptylist message="Sanaw boş" />}
+
+          {markets.length > 0 &&
+            markets.map((market, index) => {
+              return (
+                <aside key={index} className="border p-3 rounded-lg">
+                  {market.name}
+                </aside>
+              );
+            })}
+        </main>
       </section>
     </Layout>
   );
