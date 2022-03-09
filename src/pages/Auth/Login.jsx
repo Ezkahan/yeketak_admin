@@ -6,7 +6,7 @@ import { Navigate } from "react-router-dom";
 const Login = () => {
   const token = Cookies.get("yeketak_token");
   const [formState, setFormState] = useState({
-    email: "",
+    phone: "",
     password: "",
   });
 
@@ -23,7 +23,7 @@ const Login = () => {
         Cookies.set("yeketak_token", res.data.token, { expires: 2 });
         window.location.assign("/");
       })
-      .catch((err) => alert("Email ýa-da açarsöz nädogry"));
+      .catch((err) => alert("Telefon belgi ýa-da açarsöz nädogry"));
   };
 
   return (
@@ -54,15 +54,15 @@ const Login = () => {
           <div className="relative col-span-12 lg:col-span-6 border border-slate-800 mb-7 group bg-slate-800 rounded-lg">
             <div
               className={`bg-slate-800 absolute left-3 top-3 px-2 ${
-                formState.email.length && "-translate-y-7"
+                formState.phone.length && "-translate-y-7"
               } transform group-focus-within:-translate-y-7 group-hover:-translate-y-7 group-focus-within:text-yellow-300 rounded-lg duration-500 text-gray-300`}
             >
-              Email
+              Telefon belgi
             </div>
             <input
               onChange={handleChange}
-              name="email"
-              type="text"
+              name="phone"
+              type="number"
               className="bg-transparent p-3 w-full"
             />
           </div>
