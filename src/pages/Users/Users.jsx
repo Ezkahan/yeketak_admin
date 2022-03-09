@@ -1,4 +1,5 @@
 import { getUsers } from "api/services/UserService";
+import statusByCode from "common/helpers/statusByCode";
 import Emptylist from "components/Emptylist/Emptylist";
 import Layout from "components/Layout/Layout";
 import PageLoader from "components/Loader/PageLoader";
@@ -10,10 +11,11 @@ import { NavLink } from "react-router-dom";
 
 const Users = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(1);
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    getUsers()
+    getUsers(page)
       .then((res) => {
         setUsers(res.data.data);
         setTimeout(() => {
@@ -51,6 +53,10 @@ const Users = () => {
                   ID
                 </th>
                 <th className="px-5 py-2">Ady</th>
+                <th className="px-5 py-2">Telefon</th>
+                <th className="px-5 py-2">Kody</th>
+                <th className="px-5 py-2">Ýagdaýy</th>
+                <th className="px-5 py-2">Görnüşi</th>
                 <th className="w-48 px-5 py-2 rounded-tr-lg rounded-br-lg">
                   Sazlama
                 </th>
@@ -67,6 +73,12 @@ const Users = () => {
                     >
                       <td className="px-5 py-2">{user.id}</td>
                       <td className="px-5 py-2">{user.name}</td>
+                      <td className="px-5 py-2">{user.phone}</td>
+                      <td className="px-5 py-2">{user.confirm_code}</td>
+                      <td className="px-5 py-2">
+                        {statusByCode(user.confirm)}
+                      </td>
+                      <td className="px-5 py-2">{user.type}</td>
                       <td className="px-5 py-2">
                         <div className="flex items-center">
                           <NavLink
