@@ -3,19 +3,55 @@ import statusByCode from "common/helpers/statusByCode";
 import Emptylist from "components/Emptylist/Emptylist";
 import Layout from "components/Layout/Layout";
 import PageLoader from "components/Loader/PageLoader";
+import SmallModal from "components/SmallModal/SmallModal";
 import Title from "components/Title/Title";
 import { useState, useEffect } from "react";
 import { FaTrash } from "react-icons/fa";
+import { IoSearchOutline } from "react-icons/io5";
 import { RiEdit2Fill } from "react-icons/ri";
-import { NavLink } from "react-router-dom";
+import DeleteUser from "./DeleteUser";
+import EditUser from "./EditUser";
 
 const Users = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [users, setUsers] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [userEdit, setUserEdit] = useState({
+    edit: false,
+    user: [],
+  });
+  const [userDelete, setUserDelete] = useState({
+    delete: false,
+    id: null,
+    name: null,
+  });
 
-  useEffect(() => {
-    getUsers(page)
+  const userEditHandler = (user) => {
+    setUserEdit({
+      edit: !userEdit.edit,
+      user: !userEdit.edit ? user : [],
+    });
+
+    loadUsers();
+  };
+
+  const userDeleteHandler = (id, name) => {
+    setUserDelete({
+      delete: !userDelete.delete,
+      id: !userDelete.delete ? id : null,
+      name: !userDelete.delete ? name : null,
+    });
+
+    loadUsers();
+  };
+
+  const searchUser = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const loadUsers = () => {
+    getUsers(page, searchTerm)
       .then((res) => {
         setUsers(res.data.data);
         setTimeout(() => {
@@ -28,11 +64,33 @@ const Users = () => {
         }, 1000);
         console.log(err);
       });
-  }, []);
+  };
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
+    loadUsers();
+  }, [page, searchTerm]);
 
   return (
     <>
       {isLoading > 0 && <PageLoader />}
+
+      <SmallModal isOpen={userDelete.delete}>
+        <DeleteUser
+          id={userDelete.id}
+          name={userDelete.name}
+          userDeleteHandler={userDeleteHandler}
+        />
+      </SmallModal>
+
+      <SmallModal isOpen={userEdit.edit}>
+        <EditUser user={userEdit.user} userEditHandler={userEditHandler} />
+      </SmallModal>
+
       <Layout>
         <header className="flex justify-between items-center">
           <div>
@@ -40,6 +98,18 @@ const Users = () => {
               <h1>Agzalar</h1>
             </Title>
             <small>Jemi: {users.length}</small>
+          </div>
+
+          <div className="bg-gray-900 w-4/12 xl:flex items-center justify-between rounded-xl overflow-hidden hidden">
+            <input
+              type="search"
+              placeholder="Ady, telefony, kody"
+              onChange={searchUser}
+              className="bg-transparent p-2 pl-5 w-full"
+            />
+            <button className="text-yellow-300 p-1 rounded-xl m-2">
+              <IoSearchOutline size={28} />
+            </button>
           </div>
         </header>
 
@@ -81,15 +151,18 @@ const Users = () => {
                       <td className="px-5 py-2">{user.type}</td>
                       <td className="px-5 py-2">
                         <div className="flex items-center">
-                          <NavLink
-                            to={`/user/${user.id}/edit`}
+                          <button
+                            type="button"
+                            onClick={() => userEditHandler(user)}
                             className="cursor-pointer w-10 h-10 mr-2 border border-blue-900 text-blue-500 hover:bg-blue-500 hover:text-white duration-500 flex justify-center items-center rounded-xl"
                           >
                             <RiEdit2Fill size={18} />
-                          </NavLink>
+                          </button>
                           <button
                             type="button"
-                            // onClick={() => fileDeleteHandler(file.slug)}
+                            onClick={() =>
+                              userDeleteHandler(user.id, user.name)
+                            }
                             className="cursor-pointer w-10 h-10 border border-red-900 text-red-500 hover:bg-red-500 hover:text-white duration-500 flex justify-center items-center rounded-xl"
                           >
                             <FaTrash size={16} />

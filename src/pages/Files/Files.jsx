@@ -21,13 +21,13 @@ const Files = () => {
   const [files, setFiles] = useState([]);
   const [fileDelete, setFileDelete] = useState({
     delete: false,
-    slug: null,
+    file: null,
   });
 
-  const fileDeleteHandler = (slug) => {
+  const fileDeleteHandler = (file) => {
     setFileDelete({
       delete: !fileDelete.delete,
-      slug: !fileDelete.delete ? slug : null,
+      file: !fileDelete.delete ? file : null,
     });
 
     loadFiles();
@@ -69,7 +69,7 @@ const Files = () => {
 
       <SmallModal isOpen={fileDelete.delete}>
         <DeleteFile
-          slug={fileDelete.slug}
+          file={fileDelete.file}
           fileDeleteHandler={fileDeleteHandler}
         />
       </SmallModal>
@@ -90,7 +90,7 @@ const Files = () => {
               onChange={searchFile}
               className="bg-transparent p-2 pl-5 w-full"
             />
-            <button className="bg-yellow-300 hover:bg-yellow-500 duration-300 text-gray-900 p-1 rounded-xl m-2">
+            <button className="text-yellow-300 p-1 rounded-xl m-2">
               <IoSearchOutline size={28} />
             </button>
           </div>
@@ -140,7 +140,7 @@ const Files = () => {
                     </NavLink>
                     <button
                       type="button"
-                      onClick={() => fileDeleteHandler(file.slug)}
+                      onClick={() => fileDeleteHandler(file)}
                       className="cursor-pointer w-10 h-10 border border-red-900 text-red-500 hover:bg-red-500 hover:text-white duration-500 flex justify-center items-center rounded-xl"
                     >
                       <FaTrash size={16} />

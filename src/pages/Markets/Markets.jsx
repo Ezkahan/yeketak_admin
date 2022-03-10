@@ -1,7 +1,6 @@
 import Layout from "components/Layout/Layout";
 import { NavLink } from "react-router-dom";
 import Title from "components/Title/Title";
-import { IoSearchOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import api from "common/config/api.service";
 import Emptylist from "components/Emptylist/Emptylist";
@@ -76,7 +75,11 @@ const Markets = () => {
                     >
                       <td className="px-5 py-2">{market.id}</td>
                       <td className="px-5 py-2">{market.name}</td>
-                      <td className="px-5 py-2">{market.owner.name}</td>
+                      <td className="px-5 py-2">
+                        {market.owner && market.owner.name
+                          ? market.owner.name
+                          : "näbelli"}
+                      </td>
                       <td className="px-5 py-2">{market.images_count}</td>
                       <td className="px-5 py-2">
                         {statusByCode(market.owner_is_confirm)}
