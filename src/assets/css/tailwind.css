@@ -33,6 +33,12 @@
     border-radius: 3rem;
   }
 
+  .scroll-none::-webkit-scrollbar {
+    background: #111;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
   .h-115 {
     height: 26rem;
   }

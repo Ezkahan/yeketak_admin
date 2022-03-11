@@ -113,21 +113,21 @@ const Users = () => {
           </div>
         </header>
 
-        <section className="bg-slate-900 text-white w-full my-5 rounded-lg">
+        <section className="bg-slate-900 text-white my-5 rounded-lg scroll-none overflow-x-auto">
           {users.length === 0 && <Emptylist message="Sanaw boş" />}
 
-          <table className="table-fixed w-full overflow-hidden">
+          <table className="table-fixed w-full">
             <thead className="text-left bg-yellow-300 text-slate-900">
               <tr>
                 <th className="w-16 px-5 py-2 rounded-tl-lg rounded-bl-lg">
                   ID
                 </th>
-                <th className="px-5 py-2">Ady</th>
-                <th className="px-5 py-2">Telefon</th>
-                <th className="px-5 py-2">Kody</th>
-                <th className="px-5 py-2">Ýagdaýy</th>
-                <th className="px-5 py-2">Görnüşi</th>
-                <th className="w-48 px-5 py-2 rounded-tr-lg rounded-br-lg">
+                <th className="w-48 px-5 py-2">Ady</th>
+                <th className="w-28 px-5 py-2">Telefon</th>
+                <th className="w-16 px-5 py-2">Kody</th>
+                <th className="w-24 px-5 py-2">Ýagdaýy</th>
+                <th className="w-24 px-5 py-2">Görnüşi</th>
+                <th className="w-32 px-5 py-2 rounded-tr-lg rounded-br-lg">
                   Sazlama
                 </th>
               </tr>

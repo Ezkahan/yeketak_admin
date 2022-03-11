@@ -142,6 +142,7 @@ const EditUser = ({ user, userEditHandler }) => {
           <IoTrashOutline size={20} className="mr-2" /> Ýatda sakla
         </button>
         <button
+          type="button"
           onClick={() => userEditHandler(null)}
           className="border border-gray-300 hover:bg-gray-300 duration-300 text-slate-900 px-5 py-2.5 rounded-lg"
         >
