@@ -8,12 +8,17 @@ import { FaPencilAlt, FaTrash } from "react-icons/fa";
 import PageLoader from "components/Loader/PageLoader";
 import SmallModal from "components/SmallModal/SmallModal";
 import DeleteMarketImage from "./DeleteMarketImage";
+import EditMarketImage from "./EditMarketImage";
 
 const MarketShow = () => {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [market, setMarket] = useState([]);
   const [images, setImages] = useState([]);
+  const [marketImageEdit, setMarketImageEdit] = useState({
+    edit: false,
+    image: [],
+  });
   const [marketImageDelete, setMarketImageDelete] = useState({
     delete: false,
     image: null,
@@ -33,6 +38,15 @@ const MarketShow = () => {
           setIsLoading(false);
         }, 1000);
       });
+  };
+
+  const marketImageEditHandler = (image) => {
+    setMarketImageEdit({
+      edit: !marketImageEdit.edit,
+      image: !marketImageEdit.edit ? image : [],
+    });
+
+    loadMarket();
   };
 
   const marketImageDeleteHandler = (image) => {
@@ -58,12 +72,12 @@ const MarketShow = () => {
         />
       </SmallModal>
 
-      {/* <SmallModal isOpen={marketEdit.edit}>
-        <EditMarket
-          market={marketEdit.market}
-          marketEditHandler={marketEditHandler}
+      <SmallModal isOpen={marketImageEdit.edit}>
+        <EditMarketImage
+          image={marketImageEdit.image}
+          marketImageEditHandler={marketImageEditHandler}
         />
-      </SmallModal> */}
+      </SmallModal>
 
       <Layout>
         <header className="flex justify-between items-center">
@@ -88,7 +102,7 @@ const MarketShow = () => {
                     <div className="absolute top-3 right-3 z-30">
                       <button
                         type="button"
-                        // onClick={() => sliderDeleteHandler(slide.id)}
+                        onClick={() => marketImageEditHandler(image)}
                         className="bg-blue-500 bg-opacity-80 backdrop-blur w-10 h-10 mb-2 rounded-full flex items-center justify-center hover:bg-opacity-100 duration-500 cursor-pointer"
                       >
                         <FaPencilAlt size={18} />

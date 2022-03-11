@@ -1,22 +1,22 @@
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
-import { editMarket } from "api/services/MarketService";
+import { updateMarketImage } from "api/services/MarketService";
 import { useState } from "react";
 
-const EditMarket = ({ market, marketEditHandler }) => {
-  const [marketData, setMarketData] = useState(market ?? []);
+const EditMarketImage = ({ image, marketImageEditHandler }) => {
+  const [marketImageData, setMarketImageData] = useState(image ?? []);
   const onChange = (e) => {
     e.preventDefault();
 
-    setMarketData({
-      ...marketData,
+    setMarketImageData({
+      ...marketImageData,
       [e.target.name]: e.target.value,
     });
   };
 
   const marketEdit = () => {
-    editMarket(marketData)
+    updateMarketImage(marketImageData)
       .then((res) => {
-        marketEditHandler(null);
+        marketImageEditHandler(null);
         console.log(res);
       })
       .catch((err) => {
@@ -27,12 +27,12 @@ const EditMarket = ({ market, marketEditHandler }) => {
     <main className="flex flex-col justify-between h-full font-montserrat-medium">
       <header>
         <h1 className="text-xl font-montserrat-bold">
-          Market maglumatlaryny üýtgetmek
+          Haryt maglumatlaryny üýtgetmek
         </h1>
         <small className="text-sm block py-3">
-          Agza ady:
+          Haryt ady:
           <strong className="font-montserrat-bold text-yellow-600 ml-2">
-            {market.name}
+            {image.name}
           </strong>
         </small>
       </header>
@@ -42,8 +42,8 @@ const EditMarket = ({ market, marketEditHandler }) => {
           <div className="relative col-span-12 border border-slate-200 group bg-slate-100 rounded-lg">
             <div
               className={`bg-slate-100 absolute left-3 top-3 px-2 ${
-                marketData.name &&
-                marketData.name.length &&
+                marketImageData.name &&
+                marketImageData.name.length &&
                 "-translate-y-7 text-yellow-500"
               } transform group-focus-within:-translate-y-7 group-hover:-translate-y-7 rounded-lg duration-500 group-focus-within:text-yellow-500 text-gray-300`}
             >
@@ -52,7 +52,7 @@ const EditMarket = ({ market, marketEditHandler }) => {
             <input
               name="name"
               type="text"
-              value={marketData.name}
+              value={marketImageData.name}
               className="bg-transparent p-3 w-full"
             />
           </div>
@@ -60,8 +60,24 @@ const EditMarket = ({ market, marketEditHandler }) => {
           <div className="relative col-span-12 border border-slate-200 group bg-slate-100 rounded-lg">
             <div
               className={`bg-slate-100 absolute left-3 top-3 px-2 ${
-                marketData.description &&
-                marketData.description.length &&
+                marketImageData.price && "-translate-y-7 text-yellow-500"
+              } transform group-focus-within:-translate-y-7 group-hover:-translate-y-7 rounded-lg duration-500 group-focus-within:text-yellow-500 text-gray-300`}
+            >
+              Market ady
+            </div>
+            <input
+              name="price"
+              type="text"
+              value={marketImageData.price}
+              className="bg-transparent p-3 w-full"
+            />
+          </div>
+
+          <div className="relative col-span-12 border border-slate-200 group bg-slate-100 rounded-lg">
+            <div
+              className={`bg-slate-100 absolute left-3 top-3 px-2 ${
+                marketImageData.description &&
+                marketImageData.description.length &&
                 "-translate-y-7 text-yellow-500"
               } transform group-focus-within:-translate-y-7 group-hover:-translate-y-7 rounded-lg duration-500 group-focus-within:text-yellow-500 text-gray-300`}
             >
@@ -69,9 +85,34 @@ const EditMarket = ({ market, marketEditHandler }) => {
             </div>
             <textarea
               name="description"
-              value={marketData.description}
+              value={marketImageData.description}
               className="bg-transparent p-3 w-full"
             ></textarea>
+          </div>
+
+          <div className="relative col-span-12">
+            <div
+              className={`bg-slate-100 absolute left-3 top-3 px-2 transform -translate-y-7 rounded-lg duration-500 text-yellow-500`}
+            >
+              Haryt ýagdaýy
+            </div>
+            <select
+              name="confirm"
+              className="bg-slate-100 border border-slate-200 group rounded-lg w-full px-5 py-3 appearance-none"
+            >
+              <option
+                selected={marketImageData && marketImageData.confirm === 0}
+                value="0"
+              >
+                Tassyklanmadyk
+              </option>
+              <option
+                selected={marketImageData && marketImageData.confirm === 1}
+                value="1"
+              >
+                Tassyklanan
+              </option>
+            </select>
           </div>
         </form>
       </main>
@@ -85,7 +126,7 @@ const EditMarket = ({ market, marketEditHandler }) => {
         </button>
         <button
           type="button"
-          onClick={() => marketEditHandler(null)}
+          onClick={() => marketImageEditHandler(null)}
           className="border border-gray-300 hover:bg-gray-300 duration-300 text-slate-900 px-5 py-2.5 rounded-lg"
         >
           Bes et
@@ -95,4 +136,4 @@ const EditMarket = ({ market, marketEditHandler }) => {
   );
 };
 
-export default EditMarket;
+export default EditMarketImage;

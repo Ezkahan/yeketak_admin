@@ -16,6 +16,10 @@ export const deleteMarket = (id) => {
   return api.delete(`markets/${id}`);
 };
 
+export const updateMarketImage = (image) => {
+  return api.put(`markets/image/${image.id}`, image);
+};
+
 export const deleteMarketImage = (id) => {
-  return api.delete(`markets/${id}/image`);
+  return api.delete(`markets/image/${id}`);
 };
