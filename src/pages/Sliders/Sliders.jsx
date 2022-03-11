@@ -101,7 +101,7 @@ const Sliders = () => {
                   <button
                     type="button"
                     onClick={() => sliderDeleteHandler(slide.id)}
-                    className="bg-red-500 bg-opacity-90 backdrop-blur absolute top-3 right-3 w-12 h-12 rounded-full flex items-center justify-center hover:bg-opacity-100 duration-500 cursor-pointer"
+                    className="bg-red-500 bg-opacity-80 backdrop-blur absolute top-3 right-3 w-10 h-10 rounded-full flex items-center justify-center hover:bg-opacity-100 duration-500 cursor-pointer"
                   >
                     <FaTrash size={20} />
                   </button>

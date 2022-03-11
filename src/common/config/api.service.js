@@ -6,7 +6,7 @@ const token = Cookie.get("yeketak_token");
 
 const api = axios.create({
   baseURL: "http://localhost:8000/api",
-  //   baseURL: "https://yeketak.com.tm/api",
+  // baseURL: "https://yeketak.com.tm/api",
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
