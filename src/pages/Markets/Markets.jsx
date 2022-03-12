@@ -96,26 +96,24 @@ const Markets = () => {
             <Emptylist message="Sanaw boş" />
           )}
 
-          <table className="table-fixed w-full">
-            <thead className="text-left bg-yellow-300 text-slate-900">
-              <tr>
-                <th className="w-16 px-5 py-2 rounded-tl-lg rounded-bl-lg">
-                  ID
-                </th>
-                <th className="w-32 px-5 py-2">Ady</th>
-                <th className="w-48 px-5 py-2">Eyesi</th>
-                <th className="w-32 px-5 py-2">Haryt sany</th>
-                <th className="w-28 px-5 py-2">Ýagdaýy</th>
-                <th className="w-48 px-5 py-2 rounded-tr-lg rounded-br-lg">
-                  Sazlama
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {markets &&
-                markets.data &&
-                markets.data.length > 0 &&
-                markets.data.map((market, index) => {
+          {markets && markets.data && markets.data.length > 0 && (
+            <table className="table-fixed w-full">
+              <thead className="text-left bg-yellow-300 text-slate-900">
+                <tr>
+                  <th className="w-16 px-5 py-2 rounded-tl-lg rounded-bl-lg">
+                    ID
+                  </th>
+                  <th className="w-32 px-5 py-2">Ady</th>
+                  <th className="w-48 px-5 py-2">Eyesi</th>
+                  <th className="w-32 px-5 py-2">Haryt sany</th>
+                  <th className="w-28 px-5 py-2">Ýagdaýy</th>
+                  <th className="w-48 px-5 py-2 rounded-tr-lg rounded-br-lg">
+                    Sazlama
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {markets.data.map((market, index) => {
                   return (
                     <tr
                       key={index}
@@ -158,8 +156,9 @@ const Markets = () => {
                     </tr>
                   );
                 })}
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          )}
         </section>
       </Layout>
     </>
