@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Layout from "components/Layout/Layout";
-import { showMarket } from "api/services/MarketService";
+import { showMarket, getMarketImages } from "api/services/MarketService";
 import Title from "components/Title/Title";
 import Emptylist from "components/Emptylist/Emptylist";
 import { FaPencilAlt, FaTrash } from "react-icons/fa";
@@ -9,10 +9,13 @@ import PageLoader from "components/Loader/PageLoader";
 import SmallModal from "components/SmallModal/SmallModal";
 import DeleteMarketImage from "./DeleteMarketImage";
 import EditMarketImage from "./EditMarketImage";
+import ReactPaginate from "react-paginate";
+import Footer from "components/Footer/Footer";
 
 const MarketShow = () => {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(1);
   const [market, setMarket] = useState([]);
   const [images, setImages] = useState([]);
   const [marketImageEdit, setMarketImageEdit] = useState({
@@ -28,7 +31,21 @@ const MarketShow = () => {
     showMarket(id)
       .then((res) => {
         setMarket(res.data.market);
-        setImages(res.data.images);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
+      })
+      .catch((err) => {
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
+      });
+  };
+
+  const loadMarketImages = () => {
+    getMarketImages(id, page)
+      .then((res) => {
+        setImages(res.data);
         setTimeout(() => {
           setIsLoading(false);
         }, 1000);
@@ -47,6 +64,7 @@ const MarketShow = () => {
     });
 
     loadMarket();
+    loadMarketImages();
   };
 
   const marketImageDeleteHandler = (image) => {
@@ -55,11 +73,13 @@ const MarketShow = () => {
       image: !marketImageDelete.delete ? image : null,
     });
     loadMarket();
+    loadMarketImages();
   };
 
   useEffect(() => {
     loadMarket();
-  }, []);
+    loadMarketImages();
+  }, [page]);
 
   return (
     <>
@@ -85,15 +105,21 @@ const MarketShow = () => {
             <Title>
               <h1>{market && market.name}</h1>
             </Title>
-            <small>Jemi haryt: {images.length}</small>
+            <small>
+              Jemi haryt: {images && images.meta && images.meta.total}
+            </small>
           </div>
         </header>
 
         <section className="bg-slate-900 p-5 my-5 rounded-lg">
-          {images && images.length === 0 && <Emptylist message="Sanaw boş" />}
+          {images && images.data && Object.keys(images.data).length === 0 && (
+            <Emptylist message="Sanaw boş" />
+          )}
           <main className="grid grid-cols-12 gap-5">
             {images &&
-              images.map((image, index) => {
+              images.data &&
+              Object.keys(images.data).length &&
+              images.data.map((image, index) => {
                 return (
                   <aside
                     key={index}
@@ -138,6 +164,29 @@ const MarketShow = () => {
                 );
               })}
           </main>
+
+          <Footer>
+            <ReactPaginate
+              previousClassName={"hidden"}
+              nextClassName={"hidden"}
+              breakLabel={"..."}
+              breakClassName={
+                "bg-slate-900 page-link text-white hover:bg-yellow-300 md:inline-flex relative items-center m-1 text-sm rounded-3xl duration-500 border-2 border-yellow-900/80"
+              }
+              // pageCount={1}
+              pageCount={images && images.meta && images.meta.last_page}
+              marginPagesDisplayed={1}
+              pageRangeDisplayed={3}
+              onPageChange={(data) => setPage(data.selected + 1)}
+              pageClassName={
+                "bg-slate-900 page-link text-white hover:bg-yellow-300 md:inline-flex relative items-center m-1 text-sm rounded-3xl duration-500 border-2 border-yellow-300"
+              }
+              containerClassName={
+                "font-montserrat-bold relative z-0 inline-flex justify-center rounded-md w-full"
+              }
+              activeClassName={"bg-yellow-400 text-slate-900 border-yellow-300"}
+            />
+          </Footer>
         </section>
       </Layout>
     </>

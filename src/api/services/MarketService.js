@@ -12,6 +12,10 @@ export const showMarket = (id) => {
   return api.get(`markets/${id}`);
 };
 
+export const getMarketImages = (id, page) => {
+  return api.get(`markets/${id}/images?page=${page}`);
+};
+
 export const deleteMarket = (id) => {
   return api.delete(`markets/${id}`);
 };
