@@ -9,7 +9,7 @@ import {
   IoStarOutline,
 } from "react-icons/io5";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
-import LOGO from '../../assets/logo.png'
+import LOGO from "../../assets/logo.png";
 
 const Sidebar = ({ isOpen, toggle }) => {
   return (
@@ -27,7 +27,11 @@ const Sidebar = ({ isOpen, toggle }) => {
             isOpen ? null : "translate-y-2"
           }`}
         >
-          {isOpen ? <img src={LOGO} alt="Yeketak" className="w-28" /> : <AiOutlineMenuUnfold size={24} />}
+          {isOpen ? (
+            <img src={LOGO} alt="Yeketak" className="w-28" />
+          ) : (
+            <AiOutlineMenuUnfold size={24} />
+          )}
         </p>
       </header>
 
@@ -108,7 +112,7 @@ const Sidebar = ({ isOpen, toggle }) => {
               isOpen ? "translate-y-0" : "translate-y-10"
             }`}
           >
-            Marketlar
+            Magazinlar
           </p>
         </NavLink>
 

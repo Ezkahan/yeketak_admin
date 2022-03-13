@@ -103,7 +103,7 @@ const Artists = () => {
               return (
                 <colgroup
                   key={index}
-                  className="flex justify-between items-center col-span-12 xl:col-span-6 relative duration-500 bg-slate-900 shadow-xl shadow-slate-800 rounded-xl p-4"
+                  className="flex justify-between items-center col-span-12 xl:col-span-6 relative duration-500 bg-slate-900 rounded-xl p-4"
                 >
                   <aside className="flex items-center">
                     <img
