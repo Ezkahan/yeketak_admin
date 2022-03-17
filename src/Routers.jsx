@@ -15,6 +15,7 @@ import Markets from "pages/Markets/Markets";
 import Services from "pages/Services/Services";
 import Users from "pages/Users/Users";
 import MarketShow from "pages/Markets/MarketShow";
+import ServiceShow from "pages/Services/ServiceShow";
 
 const Routers = () => {
   return (
@@ -34,6 +35,7 @@ const Routers = () => {
       <Route path="/markets" element={<Markets />} />
       <Route path="/market/:id" element={<MarketShow />} />
       <Route path="/services" element={<Services />} />
+      <Route path="/service/:id" element={<ServiceShow />} />
       <Route path="/users" element={<Users />} />
 
       <Route path="*" element={<Page404 />} />
