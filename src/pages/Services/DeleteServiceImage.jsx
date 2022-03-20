@@ -1,9 +1,9 @@
 import { IoTrashOutline } from "react-icons/io5";
-import { deleteMarketImage } from "api/services/MarketService";
+import { deleteServiceImage } from "api/services/ServiceService";
 
 const DeleteServiceImage = ({ image, serviceImageDeleteHandler }) => {
   const imageDelete = () => {
-    deleteMarketImage(image.id)
+    deleteServiceImage(image.id)
       .then((res) => {
         serviceImageDeleteHandler(null);
         console.log(res);

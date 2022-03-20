@@ -13,6 +13,7 @@ const Layout = ({ children, className }) => {
       <nav>
         <Sidebar isOpen={isOpen} toggle={toggle} />
       </nav>
+
       <section
         className={`${
           isOpen ? "xl:ml-80" : "xl:ml-28"
