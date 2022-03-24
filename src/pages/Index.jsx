@@ -10,7 +10,7 @@ const Index = () => {
         </aside>
 
         <aside className="col-span-12 xl:col-span-6">
-          <Title> Täze bagşylar test </Title>
+          <Title> Täze bagşylar </Title>
         </aside>
       </section>
     </Layout>
