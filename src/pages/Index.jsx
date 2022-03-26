@@ -12,14 +12,6 @@ const Index = () => {
         <aside className="col-span-12 xl:col-span-6">
           <Title> Täze bagşylar </Title>
         </aside>
-
-        <aside className="col-span-12 xl:col-span-6">
-          <Title> Täze faýllar </Title>
-        </aside>
-
-        <aside className="col-span-12 xl:col-span-6">
-          <Title> Täze bagşylar </Title>
-        </aside>
       </section>
     </Layout>
   );
