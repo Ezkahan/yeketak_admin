@@ -92,7 +92,7 @@ const Users = () => {
       </SmallModal>
 
       <Layout>
-        <header className="flex justify-between items-center">
+        <header className="flex xl:flex-row flex-col justify-between xl:items-center">
           <div>
             <Title>
               <h1>Agzalar</h1>
@@ -100,7 +100,7 @@ const Users = () => {
             <small>Jemi: {users.length}</small>
           </div>
 
-          <div className="bg-gray-900 w-4/12 xl:flex items-center justify-between rounded-xl overflow-hidden hidden">
+          <div className="bg-gray-900 w-full xl:w-4/12 mt-3 xl:mt-0 flex items-center justify-between rounded-xl overflow-hidden">
             <input
               type="search"
               placeholder="Ady, telefony, kody"
@@ -145,7 +145,7 @@ const Users = () => {
                       <td className="px-5 py-2">{user.name}</td>
                       <td className="px-5 py-2">{user.phone}</td>
                       <td className="px-5 py-2">{user.confirm_code}</td>
-                      <td className="px-5 py-2">
+                      <td className="px-5 py-2 text-xs">
                         {statusByCode(user.confirm)}
                       </td>
                       <td className="px-5 py-2 text-xs">{user.type_name}</td>
