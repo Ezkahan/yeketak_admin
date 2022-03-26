@@ -148,7 +148,7 @@ const Users = () => {
                       <td className="px-5 py-2">
                         {statusByCode(user.confirm)}
                       </td>
-                      <td className="px-5 py-2">{user.type}</td>
+                      <td className="px-5 py-2">{user.type_name}</td>
                       <td className="px-5 py-2">
                         <div className="flex items-center">
                           <button
