@@ -1,5 +1,6 @@
 {
   "name": "yeketak-admin",
+  "homepage": "tore",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
