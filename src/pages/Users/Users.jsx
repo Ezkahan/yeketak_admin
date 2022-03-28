@@ -1,6 +1,7 @@
 import { getUsers } from "api/services/UserService";
 import statusByCode from "common/helpers/statusByCode";
 import Emptylist from "components/Emptylist/Emptylist";
+import Footer from "components/Footer/Footer";
 import Layout from "components/Layout/Layout";
 import PageLoader from "components/Loader/PageLoader";
 import SmallModal from "components/SmallModal/SmallModal";
@@ -9,6 +10,7 @@ import { useState, useEffect } from "react";
 import { FaTrash } from "react-icons/fa";
 import { IoSearchOutline } from "react-icons/io5";
 import { RiEdit2Fill } from "react-icons/ri";
+import ReactPaginate from "react-paginate";
 import DeleteUser from "./DeleteUser";
 import EditUser from "./EditUser";
 
@@ -53,7 +55,7 @@ const Users = () => {
   const loadUsers = () => {
     getUsers(page, searchTerm)
       .then((res) => {
-        setUsers(res.data.data);
+        setUsers(res.data);
         setTimeout(() => {
           setIsLoading(false);
         }, 1000);
@@ -97,7 +99,7 @@ const Users = () => {
             <Title>
               <h1>Agzalar</h1>
             </Title>
-            <small>Jemi: {users.length}</small>
+            <small>Jemi: {users && users.meta && users.meta.total}</small>
           </div>
 
           <div className="bg-gray-900 w-full xl:w-4/12 mt-3 xl:mt-0 flex items-center justify-between rounded-xl overflow-hidden">
@@ -134,8 +136,8 @@ const Users = () => {
             </thead>
             <tbody>
               {users &&
-                users.length > 0 &&
-                users.map((user, index) => {
+                users.data.length > 0 &&
+                users.data.map((user, index) => {
                   return (
                     <tr
                       key={index}
@@ -175,6 +177,28 @@ const Users = () => {
             </tbody>
           </table>
         </section>
+
+        <Footer>
+          <ReactPaginate
+            previousClassName={"hidden"}
+            nextClassName={"hidden"}
+            breakLabel={"..."}
+            breakClassName={
+              "bg-slate-900 page-link text-white hover:bg-yellow-300 md:inline-flex relative items-center m-1 text-sm rounded-3xl duration-500 border-2 border-yellow-900/80"
+            }
+            pageCount={users && users.meta && users.meta.last_page}
+            marginPagesDisplayed={1}
+            pageRangeDisplayed={3}
+            onPageChange={(data) => setPage(data.selected + 1)}
+            pageClassName={
+              "bg-slate-900 page-link text-white hover:bg-yellow-300 md:inline-flex relative items-center m-1 text-sm rounded-3xl duration-500 border-2 border-yellow-300"
+            }
+            containerClassName={
+              "font-montserrat-bold relative z-0 inline-flex justify-center rounded-md w-full"
+            }
+            activeClassName={"bg-yellow-400 text-slate-900 border-yellow-300"}
+          />
+        </Footer>
       </Layout>
     </>
   );
