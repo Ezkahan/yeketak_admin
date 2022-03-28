@@ -74,6 +74,8 @@ const Users = () => {
       behavior: "smooth",
     });
 
+    //
+
     loadUsers();
   }, [page, searchTerm]);
 
