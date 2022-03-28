@@ -136,6 +136,7 @@ const Users = () => {
             </thead>
             <tbody>
               {users &&
+                users.data &&
                 users.data.length > 0 &&
                 users.data.map((user, index) => {
                   return (
