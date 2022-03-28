@@ -6,7 +6,7 @@ import "./assets/css/tailwind.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename="tore">
+    <BrowserRouter>
       <Routers />
     </BrowserRouter>
   </React.StrictMode>,
