@@ -11,7 +11,7 @@ import { Tabs, Tab, TabPanel, TabList } from "react-web-tabs";
 const Index = () => {
   const [marketProducts, setMarketProducts] = useState([]);
   const [serviceProducts, setServiceProducts] = useState([]);
-  const [activeTab, setActiveTab] = useState("");
+  const [activeTab, setActiveTab] = useState("market");
 
   useEffect(() => {
     HomepageService.loadNewMarketProducts()
