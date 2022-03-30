@@ -5,6 +5,7 @@ import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const token = Cookies.get("yeketak_token");
+  const [loading, setLoading] = useState(false);
   const [formState, setFormState] = useState({
     phone: "",
     password: "",
@@ -17,13 +18,19 @@ const Login = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    setLoading(true);
+
     api
       .post("login", formState)
       .then((res) => {
+        setLoading(false);
         Cookies.set("yeketak_token", res.data.token, { expires: 2 });
         window.location.assign("/");
       })
-      .catch((err) => alert("Telefon belgi ýa-da açarsöz nädogry"));
+      .catch((err) => {
+        setLoading(false);
+        alert("Telefon belgi ýa-da açarsöz nädogry");
+      });
   };
 
   return (
@@ -84,7 +91,10 @@ const Login = () => {
           </div>
 
           <div className="text-center mb-5">
-            <button className="bg-yellow-500 text-gray-900 font-montserrat-bold text-lg px-6 py-2 rounded-lg">
+            <button
+              disabled={loading}
+              className="bg-yellow-500 disabled:opacity-50 text-gray-900 font-montserrat-bold text-lg px-6 py-2 rounded-lg"
+            >
               Hasaba gir
             </button>
           </div>
